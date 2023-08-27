@@ -1,7 +1,13 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230.74 68.27" class="app-logo" @mouseenter="playLogoAnimation" @mouseleave="reverseLogoAnimation">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 230.74 68.27"
+    class="app-logo"
+    @mouseenter="playLogoAnimation"
+    @mouseleave="reverseLogoAnimation"
+  >
     <g id="Layer_2" data-name="Layer 2" class="text">
-      <path d="M104,7.91C91.78,26.64,65.76,67.58,58,67.58c-2.88,0-9.75-5.77-9.75-10.09-4.91,6.1-9.32,10.17-12,10.17-3,.08-8.73-5.85-8.73-10.17,0-7.2,16.52-40.25,24.32-50.25C41.7,7.83,6.7,25.63,6.7,43c0,2.88,2.11,2.37,1.35,3.73-1.1,1.61-8-2.8-8-8.14C0,20.79,36.78,1.22,51.87,1.22c3.22,0,6.77,3.3,8.3,5.42.68.6.93,1.36.59,1.78-9.23,15.76-20.34,39.32-23,49.15,6.27-5,10.93-9.32,22.71-29.57,7.63-13.65,16-26.19,17.37-26.19,2,0,6.53,3.56,5.34,5.43C74.15,23.17,64.58,34.61,58.48,57.57c6.27-5,29.23-37,40.93-57.28A.36.36,0,0,1,99.92,0C101.7.12,105.59,5.37,104,7.91Z" />
+      <path :fill="strokeColor" d="M104,7.91C91.78,26.64,65.76,67.58,58,67.58c-2.88,0-9.75-5.77-9.75-10.09-4.91,6.1-9.32,10.17-12,10.17-3,.08-8.73-5.85-8.73-10.17,0-7.2,16.52-40.25,24.32-50.25C41.7,7.83,6.7,25.63,6.7,43c0,2.88,2.11,2.37,1.35,3.73-1.1,1.61-8-2.8-8-8.14C0,20.79,36.78,1.22,51.87,1.22c3.22,0,6.77,3.3,8.3,5.42.68.6.93,1.36.59,1.78-9.23,15.76-20.34,39.32-23,49.15,6.27-5,10.93-9.32,22.71-29.57,7.63-13.65,16-26.19,17.37-26.19,2,0,6.53,3.56,5.34,5.43C74.15,23.17,64.58,34.61,58.48,57.57c6.27-5,29.23-37,40.93-57.28A.36.36,0,0,1,99.92,0C101.7.12,105.59,5.37,104,7.91Z" />
       <defs>
         <clipPath id="websiteClip">
 
@@ -12,15 +18,16 @@
         </clipPath>
       </defs>
       <path
+        v-show="loadPath"
         class="pathToFollow"
         clip-path="url(#websiteClip)"
         d="M86.74 50.27 93.74 39.27 98.74 31.27 102.74 24.27 104.74 21.27 104.74 17.27 102.74 17.27 107.74 23.27 115.74 27.27 107.74 36.27 102.74 48.27 97.74 56.27 98.74 63.27 105.74 63.27 112.74 57.27 117.74 47.27 122.74 38.27 129.74 26.27 137.74 14.27 143.74 7.27 113.74 60.27 116.74 64.27 126.74 59.27 139.74 36.27 157.74 7.27 151.74 19.27 140.74 21.27 171.74 17.27 150.74 21.27 128.74 61.27 131.74 64.27 143.74 54.27 151.74 50.27 158.74 49.27 166.74 42.27 171.74 34.27 170.74 28.27 163.74 26.27 157.74 31.27 150.74 40.27 148.74 49.27 147.74 58.27 150.74 63.27 158.74 62.27 166.74 56.27 171.74 48.27"
         fill="none"
-        stroke="#000000"
+        :stroke="strokeColor"
         stroke-width="10"
       />
     </g>
-    <circle cx="95.74" cy="56.27" r="12" class="circle" />
+    <circle cx="95.74" cy="56.27" r="12" class="circle" :fill="strokeColor" />
   </svg>
 </template>
 
@@ -30,10 +37,20 @@ export default {
   data () {
     return {
       logoAnimation: null,
-      circleAnimation: null
+      circleAnimation: null,
+      loadPath: false
+    }
+  },
+  computed: {
+    strokeColor () {
+      return this.$vuetify.theme.dark ? '#ffffff' : '#000000'
     }
   },
   mounted () {
+    this.$nextTick(() => {
+      this.loadPath = true
+      this.playLogoAnimation()
+    })
     this.logoAnimation = anime({
       targets: '.pathToFollow',
       strokeDashoffset: [anime.setDashoffset, 0],
@@ -49,6 +66,10 @@ export default {
       translateX: 96,
       autoplay: false
     })
+
+    setTimeout(() => {
+      this.reverseLogoAnimation()
+    }, 5000)
   },
   methods: {
     playLogoAnimation () {
@@ -80,6 +101,6 @@ export default {
 
 <style lang="scss" scoped>
   .app-logo{
-    height: 40px;
+    height: 30px;
   }
 </style>
