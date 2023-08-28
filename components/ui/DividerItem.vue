@@ -22,8 +22,8 @@ export default {
     },
     cssClasses () {
       return {
-        dark: this.dark === true,
-        light: this.dark === false
+        dark: this.dark,
+        light: !this.dark
       }
     }
   }
@@ -32,6 +32,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~vuetify/src/styles/styles.sass';
+
 .divider{
     height: 1px;
     margin: 50px 0;
@@ -56,7 +58,7 @@ export default {
 
 .dark.divider{
     &::after{
-        background-color: #1C1C1C;
+        background-color: map-get($material-dark, 'background')
     }
 }
 
@@ -66,7 +68,7 @@ export default {
 
 .light.divider{
     &::after{
-        background-color: #F7F8F9;
+        background-color: map-get($material-light, 'background')
     }
 }
 </style>

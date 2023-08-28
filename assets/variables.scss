@@ -7,6 +7,9 @@
 $material-light: (
   'background': #F7F8F9,
 );
+$material-dark: (
+  'background': #1C1C1C,
+);
 
 $grid-breakpoints: (
     xs: 0,
@@ -15,3 +18,6 @@ $grid-breakpoints: (
     lg: 1250px,
     xl: 1250px
 );
+
+$toolbar-content-padding-y: 0;
+$menu-content-elevation: 4;

@@ -30,9 +30,7 @@
           mdi-bell-outline
         </v-icon>
       </v-btn>
-      <v-avatar color="black" size="32">
-        <span class="white--text text-caption">CJ</span>
-      </v-avatar>
+      <the-profile />
     </div>
     <div v-else>
       <v-btn
@@ -42,14 +40,14 @@
         elevation="0"
         :color="signInButtonColor"
         class="font-weight-regular text-capitalize mx-1"
-        to="/signin"
+        to="/auth/signin"
       >
         sign in
       </v-btn>
     </div>
     <v-btn icon small class="mx-1">
       <v-icon small>
-        mdi-magnify
+        mdi-crosshairs
       </v-icon>
     </v-btn>
 
@@ -58,19 +56,18 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import NavigationLink from './NavigationLink.vue'
 import TheLogo from './TheLogo.vue'
+import TheProfile from './TheProfile.vue'
 import TheThemeToggler from './TheThemeToggler.vue'
+
 export default {
   components: {
     TheLogo,
     NavigationLink,
-    TheThemeToggler
-  },
-  data () {
-    return {
-      user: null
-    }
+    TheThemeToggler,
+    TheProfile
   },
   computed: {
     dark () {
@@ -78,7 +75,10 @@ export default {
     },
     signInButtonColor () {
       return this.dark ? '#ffffff' : '#000000'
-    }
+    },
+    ...mapGetters({
+      user: 'auth/USER'
+    })
   }
 }
 </script>
