@@ -4,7 +4,7 @@
     absolute
     min-width="240"
     left
-    nudge-right="20"
+    nudge-right="30"
     nudge-bottom="30"
   >
     <template #activator="{ on, attrs }">

@@ -131,7 +131,6 @@
         Sign in
       </nuxt-link>
     </div>
-    </v-scroll-y-reverse-transition>
   </div>
 </template>
 
@@ -188,6 +187,6 @@ export default {
 .input-icon{
     position: absolute;
     right: 15px;
-    top: 33px;
+    top: 36px;
 }
 </style>

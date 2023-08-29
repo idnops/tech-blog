@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "author": "aydin yagubov",
+        "slug": "keep_your_gadets_neat",
+        "title": "always keep your gadget neat an tidy",
+        "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio modi fuga iusto excepturi eaque accusamus distinctio laudantium consectetur animi dicta voluptate nostrum quibusdam minus illo doloremque, aperiam eveniet facere officiis repellendus a aut est quia vero! Dolor modi molestiae laboriosam laudantium iure esse iste voluptates dolorem maxime sint quae mollitia eum, exercitationem cumque aut ullam voluptatum nemo debitis quos, animi necessitatibus. Illo impedit id obcaecati asperiores illum voluptatum, in sit nihil voluptatibus! Itaque dolore esse explicabo non sunt accusantium nihil animi necessitatibus repellat id ad soluta et dicta nulla incidunt ea adipisci ratione exercitationem a impedit vel, praesentium beatae ut.",
+        "img": "1.jpg",
+        "created_at": "2023-08-29T18:25:43.511Z"
+    },
+    {
+        "id": 2,
+        "author": "aydin yagubov",
+        "slug": "keep_your_gadets_neat",
+        "title": "always keep your gadget neat an tidy",
+        "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio modi fuga iusto excepturi eaque accusamus distinctio laudantium consectetur animi dicta voluptate nostrum quibusdam minus illo doloremque, aperiam eveniet facere officiis repellendus a aut est quia vero! Dolor modi molestiae laboriosam laudantium iure esse iste voluptates dolorem maxime sint quae mollitia eum, exercitationem cumque aut ullam voluptatum nemo debitis quos, animi necessitatibus. Illo impedit id obcaecati asperiores illum voluptatum, in sit nihil voluptatibus! Itaque dolore esse explicabo non sunt accusantium nihil animi necessitatibus repellat id ad soluta et dicta nulla incidunt ea adipisci ratione exercitationem a impedit vel, praesentium beatae ut.",
+        "img": "2.jpg",
+        "created_at": "2023-08-29T18:25:43.511Z"
+    },
+    {
+        "id": 3,
+        "author": "aydin yagubov",
+        "slug": "keep_your_gadets_neat",
+        "title": "always keep your gadget neat an tidy",
+        "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio modi fuga iusto excepturi eaque accusamus distinctio laudantium consectetur animi dicta voluptate nostrum quibusdam minus illo doloremque, aperiam eveniet facere officiis repellendus a aut est quia vero! Dolor modi molestiae laboriosam laudantium iure esse iste voluptates dolorem maxime sint quae mollitia eum, exercitationem cumque aut ullam voluptatum nemo debitis quos, animi necessitatibus. Illo impedit id obcaecati asperiores illum voluptatum, in sit nihil voluptatibus! Itaque dolore esse explicabo non sunt accusantium nihil animi necessitatibus repellat id ad soluta et dicta nulla incidunt ea adipisci ratione exercitationem a impedit vel, praesentium beatae ut.",
+        "img": "3.jpg",
+        "created_at": "2023-08-29T18:25:43.511Z"
+    },
+    {
+        "id": 4,
+        "author": "aydin yagubov",
+        "slug": "keep_your_gadets_neat",
+        "title": "always keep your gadget neat an tidy",
+        "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio modi fuga iusto excepturi eaque accusamus distinctio laudantium consectetur animi dicta voluptate nostrum quibusdam minus illo doloremque, aperiam eveniet facere officiis repellendus a aut est quia vero! Dolor modi molestiae laboriosam laudantium iure esse iste voluptates dolorem maxime sint quae mollitia eum, exercitationem cumque aut ullam voluptatum nemo debitis quos, animi necessitatibus. Illo impedit id obcaecati asperiores illum voluptatum, in sit nihil voluptatibus! Itaque dolore esse explicabo non sunt accusantium nihil animi necessitatibus repellat id ad soluta et dicta nulla incidunt ea adipisci ratione exercitationem a impedit vel, praesentium beatae ut.",
+        "img": "4.jpg",
+        "created_at": "2023-08-29T18:25:43.511Z"
+    },
+    {
+        "id": 5,
+        "author": "aydin yagubov",
+        "slug": "keep_your_gadets_neat",
+        "title": "always keep your gadget neat an tidy",
+        "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio modi fuga iusto excepturi eaque accusamus distinctio laudantium consectetur animi dicta voluptate nostrum quibusdam minus illo doloremque, aperiam eveniet facere officiis repellendus a aut est quia vero! Dolor modi molestiae laboriosam laudantium iure esse iste voluptates dolorem maxime sint quae mollitia eum, exercitationem cumque aut ullam voluptatum nemo debitis quos, animi necessitatibus. Illo impedit id obcaecati asperiores illum voluptatum, in sit nihil voluptatibus! Itaque dolore esse explicabo non sunt accusantium nihil animi necessitatibus repellat id ad soluta et dicta nulla incidunt ea adipisci ratione exercitationem a impedit vel, praesentium beatae ut.",
+        "img": "5.jpg",
+        "created_at": "2023-08-29T18:25:43.511Z"
+    }
+]
