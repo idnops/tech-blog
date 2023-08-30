@@ -9,10 +9,10 @@
       :centered-slides="true"
     >
       <swiper-slide
-        v-for="n in 5"
-        :key="n"
+        v-for="post in posts"
+        :key="post.id"
       >
-        <carousel-item :id="n" />
+        <carousel-item :post="post" />
       </swiper-slide>
     </swiper>
   </div>
@@ -34,6 +34,12 @@ export default {
     Swiper,
     SwiperSlide,
     CarouselItem
+  },
+  props: {
+    posts: {
+      type: Array,
+      required: true
+    }
   }
 }
 </script>

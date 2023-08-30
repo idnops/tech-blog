@@ -1,24 +1,24 @@
 <template>
   <article>
-    <nuxt-link :to="`/post/${id}`">
+    <nuxt-link :to="`/post/${post.slug}`">
       <v-hover v-slot="{ hover }">
         <div class="wrapper">
           <div class="post-image">
-            <v-img :src="`/posts/${id}.jpg`" height="540" width="420" :class="{'img-on-hover': hover}" />
+            <v-img :src="`/posts/${post.img}`" height="540" width="420" :class="{'img-on-hover': hover}" />
           </div>
 
           <div class="post-details">
-            <span class="tag text-uppercase font-weight-bold text-caption">gadget</span>
+            <span class="tag text-uppercase font-weight-bold text-caption">{{ post.category }}</span>
             <h4 class="title text-h4">
-              always keep your gadget neat an tidy
+              {{ post.title | truncate(40, '...') }}
             </h4>
             <div class="author d-flex align-center">
               <v-avatar size="42" color="white">
-                <span class="black--text text-caption text-uppercase">ay</span>
+                <span class="black--text text-caption text-uppercase">{{ authorInitials }}</span>
               </v-avatar>
               <div class="d-flex flex-column ml-2">
-                <span class="text-caption text-uppercase">author name</span>
-                <span class="text-caption text-uppercase">12 hour ago</span>
+                <span class="text-caption text-uppercase">{{ post.author }}</span>
+                <span class="text-caption text-uppercase">{{ postTime }}</span>
               </div>
             </div>
           </div>
@@ -29,13 +29,23 @@
 </template>
 
 <script>
+import moment from 'moment'
 export default {
   props: {
-    id: {
-      type: Number,
+    post: {
+      type: Object,
       required: true
     }
+  },
+  computed: {
+    authorInitials () {
+      return this.post.author.slice(0, 2)
+    },
+    postTime () {
+      return moment(this.post.created_at).fromNow()
+    }
   }
+
 }
 </script>
 
