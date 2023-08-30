@@ -50,23 +50,10 @@
         @clicked="handleDialogOpen"
       />
       <create-bookmark-list :open="openDialog" @closed="handleDialogClose" />
-      <v-tooltip :top="top" :bottom="bottom" open-delay="300" color="black">
-        <template #activator="{ on, attrs }">
-          <v-btn
-            icon
-            plain
-            :ripple="false"
-            class="pa-0"
-            v-bind="attrs"
-            v-on="on"
-          >
-            <v-icon>
-              mdi-export-variant
-            </v-icon>
-          </v-btn>
-        </template>
-        <span>Share</span>
-      </v-tooltip>
+      <post-share
+        :top="top"
+        :bottom="bottom"
+      />
     </div>
   </div>
 </template>
@@ -74,8 +61,9 @@
 <script>
 import CreateBookmarkList from './CreateBookmarkList.vue'
 import PostBookmark from './PostBookmark.vue'
+import PostShare from './PostShare.vue'
 export default {
-  components: { PostBookmark, CreateBookmarkList },
+  components: { PostBookmark, CreateBookmarkList, PostShare },
   props: {
     position: {
       type: String,

@@ -10,7 +10,7 @@
     <template #activator="{ on, attrs }">
       <v-avatar
         :color="dark ? 'white' : 'black'"
-        size="32"
+        size="42"
         v-bind="attrs"
         v-on="on"
       >

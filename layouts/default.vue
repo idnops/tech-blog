@@ -1,19 +1,15 @@
 <template>
   <v-app :dark="dark">
-    <v-container>
-      <TheNavBar />
-      <v-main>
-        <v-container>
-          <Nuxt />
-        </v-container>
-      </v-main>
-      <v-footer
-        :absolute="!fixed"
-        app
-      >
-        <span>&copy; {{ new Date().getFullYear() }}</span>
-      </v-footer>
-    </v-container>
+    <TheNavBar />
+    <v-main>
+      <Nuxt />
+    </v-main>
+    <v-footer
+      :absolute="!fixed"
+      app
+    >
+      <span>&copy; {{ new Date().getFullYear() }}</span>
+    </v-footer>
   </v-app>
 </template>
 

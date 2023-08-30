@@ -1,5 +1,7 @@
 <template>
-  <the-post-carousel :posts="posts" />
+  <v-container>
+    <the-post-carousel :posts="posts" />
+  </v-container>
 </template>
 
 <script>

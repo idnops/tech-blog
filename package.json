@@ -21,6 +21,8 @@
     "swiper-vue2": "^1.0.10",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
+    "vue-social-sharing": "^3.0.9",
+    "vue-socials": "^1.1.0",
     "vue-template-compiler": "^2.7.10",
     "vuetify": "^2.6.10"
   },
