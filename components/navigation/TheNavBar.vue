@@ -46,11 +46,6 @@
           sign in
         </v-btn>
       </div>
-      <v-btn icon small class="mx-1">
-        <v-icon small>
-          mdi-crosshairs
-        </v-icon>
-      </v-btn>
 
       <the-theme-toggler class="ml-1" />
     </v-toolbar>

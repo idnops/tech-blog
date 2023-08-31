@@ -13,7 +13,7 @@
         <post-item :post="currentPost" />
       </v-container>
     </section>
-    <section class="footer pt-12 mt-12">
+    <section class="footer pt-12 mt-12" :class="[!dark ? 'dark' : 'light']">
       <v-container>
         <post-footer
           :author="currentPost.author"
@@ -56,6 +56,9 @@ export default {
     }),
     currentPost () {
       return this.posts.find(post => post.slug === this.$route.params.slug)
+    },
+    dark () {
+      return this.$vuetify.theme.dark
     }
   },
   async mounted () {
@@ -65,7 +68,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.footer{
+.footer.dark{
   background-color: #fff;
+}
+.footer.light{
+  background-color: #1e1e1e;
 }
 </style>

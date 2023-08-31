@@ -8,7 +8,7 @@
         class="mr-4"
         v-bind="attrs"
         v-on="on"
-        @click="handleLike"
+        @click.prevent="handleLike"
       >
         <v-icon v-if="like" :small="small" color="red">
           mdi-heart

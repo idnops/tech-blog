@@ -1,11 +1,12 @@
 [
     {
         "id": 1,
-        "author": "Aydin Yagubov",
-        "slug": "keep_your_gadets_neat",
-        "title": "always keep your gadget neat an tidy",
+        "author": "John Philip",
+        "slug": "choosing_between_vuejs_and_nuxtjs",
+        "title": "Choosing Between Vue.js and Nuxt.js: The Development Dilemma",
         "category": "gadget",
-        "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio modi fuga iusto excepturi eaque accusamus distinctio laudantium consectetur animi dicta voluptate nostrum quibusdam minus illo doloremque, aperiam eveniet facere officiis repellendus a aut est quia vero! Dolor modi molestiae laboriosam laudantium iure esse iste voluptates dolorem maxime sint quae mollitia eum, exercitationem cumque aut ullam voluptatum nemo debitis quos, animi necessitatibus. Illo impedit id obcaecati asperiores illum voluptatum, in sit nihil voluptatibus! Itaque dolore esse explicabo non sunt accusantium nihil animi necessitatibus repellat id ad soluta et dicta nulla incidunt ea adipisci ratione exercitationem a impedit vel, praesentium beatae ut.",
+        "description": "Deciding Between Vue.js and Nuxt.js: Factors to Consider",
+        "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio modi fuga iusto excepturi eaque accusamus distinctio",
         "img": "1.jpg",
         "created_at": "2023-08-25T18:25:43.511Z"
     },

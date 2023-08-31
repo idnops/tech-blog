@@ -8,6 +8,7 @@
         class="mr-4"
         v-bind="attrs"
         v-on="on"
+        @click.prevent
       >
         <v-icon :small="small">
           mdi-comment-outline

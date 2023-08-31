@@ -18,7 +18,7 @@
             plain
             :ripple="false"
             v-on="{...onMenu, ...onTooltip}"
-            @click="addToBookmark"
+            @click.prevent="addToBookmark"
           >
             <v-icon v-if="isPostBookmarked" :small="small">
               mdi-bookmark

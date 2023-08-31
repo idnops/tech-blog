@@ -5,11 +5,21 @@
       <Nuxt />
       <create-bookmark-list />
     </v-main>
+    <v-divider />
+
     <v-footer
-      :absolute="!fixed"
+      :absolute="true"
       app
+      class="pa-3"
     >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <v-container>
+        <div class="d-flex align-center justify-space-between">
+          <span>&copy; {{ new Date().getFullYear() }}</span>
+          <nuxt-link to="/">
+            <v-img src="/app-logo.svg" alt="" height="30" width="50" />
+          </nuxt-link>
+        </div>
+      </v-container>
     </v-footer>
   </v-app>
 </template>
@@ -22,26 +32,7 @@ export default {
   components: { TheNavBar, CreateBookmarkList },
   data () {
     return {
-      dark: false,
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+      dark: false
     }
   }
 }

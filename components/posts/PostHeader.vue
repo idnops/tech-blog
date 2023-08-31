@@ -4,11 +4,12 @@
       {{ title }}
     </h1>
     <div class="author-info d-flex align-center my-6">
-      <v-avatar size="52" color="grey">
+      <v-avatar size="52" :color="dark ? 'white' : 'black'">
         <v-img v-if="avatar" :src="avatar" />
         <span
           v-else
           class="text-caption text-uppercase"
+          :class="[dark ? 'black--text' : 'white--text']"
         >{{ getInitials(author) }}</span>
       </v-avatar>
       <div class="d-flex flex-column ml-4">
@@ -69,14 +70,25 @@ export default {
   computed: {
     published () {
       return moment(this.date).format('DD MMM YYYY')
+    },
+    dark () {
+      return this.$vuetify.theme.dark
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+@import '~vuetify/src/styles/styles.sass';
 .post-title{
     width: 50%;
+}
+
+@media #{map-get($display-breakpoints, 'sm-and-down')} {
+    .post-title {
+      width: 100%;
+      line-height: 28px;
+    }
 }
 
 .dot{

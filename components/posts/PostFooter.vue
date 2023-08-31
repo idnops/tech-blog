@@ -1,5 +1,5 @@
 <template>
-  <div class="post-footer">
+  <div class="post-footer pb-12">
     <v-avatar size="72" color="grey">
       <v-img v-if="avatar" :src="avatar" />
       <span
@@ -20,7 +20,7 @@
       <span class="text-caption">Leader learning to be better Manager. In all of my articles, you will sense thinking in systems, solution-focused coaching practice, and a sip of stoicism.</span>
     </div>
     <v-divider />
-    <h6 class="text-h6 mt-6 mb-8">
+    <h6 class="text-subtitle-1 font-weight-medium mt-6 mb-8">
       More from {{ author }}
     </h6>
     <v-row>
