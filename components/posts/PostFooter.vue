@@ -16,19 +16,28 @@
     <v-btn small elevation="0" class="text-capitalize text-caption">
       follow
     </v-btn>
-    <div class="signature mt-4">
+    <div class="signature mt-6 mb-8">
       <span class="text-caption">Leader learning to be better Manager. In all of my articles, you will sense thinking in systems, solution-focused coaching practice, and a sip of stoicism.</span>
     </div>
-    <v-divider class="my-8" />
-    <h6 class="text-h6">
+    <v-divider />
+    <h6 class="text-h6 mt-6 mb-8">
       More from {{ author }}
     </h6>
+    <v-row>
+      <v-col v-for="post in posts" :key="post.id" cols="4">
+        <post-card-medium :post="post" />
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
+import PostCardMedium from './PostCardMedium.vue'
 import profile from '~/mixins/profile.js'
 export default {
+  components: { PostCardMedium },
   mixins: [profile],
   props: {
     author: {
@@ -41,7 +50,13 @@ export default {
       default: () => ''
     }
 
+  },
+  computed: {
+    ...mapGetters({
+      posts: 'blog/POSTS'
+    })
   }
+
 }
 </script>
 

@@ -34,7 +34,6 @@
       </div>
     </div>
     <v-divider />
-    <post-item-controls />
   </div>
 </template>
 

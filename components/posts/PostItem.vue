@@ -1,6 +1,6 @@
 <template>
   <div>
-    <post-item-controls />
+    <post-item-controls :post="post" />
     <div class="content my-4">
       <div class="post-image">
         <v-img :src="`/posts/${post.img}`" height="400" class="rounded" />
@@ -26,7 +26,7 @@
           {{ tag }}
         </v-chip>
       </div>
-      <post-item-controls class="mt-4" position="bottom" />
+      <post-item-controls class="mt-4" position="bottom" :post="post" />
     </div>
   </div>
 </template>

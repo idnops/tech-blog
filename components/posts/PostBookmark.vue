@@ -18,11 +18,12 @@
             plain
             :ripple="false"
             v-on="{...onMenu, ...onTooltip}"
+            @click="addToBookmark"
           >
-            <v-icon v-if="selectedLists.length">
+            <v-icon v-if="isPostBookmarked" :small="small">
               mdi-bookmark
             </v-icon>
-            <v-icon v-else>
+            <v-icon v-else :small="small">
               mdi-bookmark-outline
             </v-icon>
           </v-btn>
@@ -52,7 +53,7 @@
         </v-list-item>
         <v-divider />
       </v-list-item-group>
-      <v-list-item @click="handleClick">
+      <v-list-item @click="openListDialog">
         <v-list-item-content>
           <v-list-item-title class="text-body-2 text-capitalize font-weight-regular">
             create new list
@@ -68,6 +69,10 @@ import { mapGetters } from 'vuex'
 
 export default {
   props: {
+    post: {
+      type: Object,
+      required: true
+    },
     top: {
       type: Boolean,
       required: true
@@ -76,9 +81,10 @@ export default {
       type: Boolean,
       required: true
     },
-    open: {
+    small: {
       type: Boolean,
-      required: true
+      required: false,
+      default: () => false
     }
   },
   data () {
@@ -89,16 +95,17 @@ export default {
   },
   computed: {
     ...mapGetters({
-      lists: 'list/LISTS',
-      post: 'blog/CURRENT_POST'
-    })
+      lists: 'list/LISTS'
+    }),
+    isPostBookmarked () {
+      if (this.post) {
+        return this.lists.filter(list => list.posts.includes(this.post.id)).length > 0
+      } else {
+        return false
+      }
+    }
   },
   watch: {
-    open () {
-      if (this.open) {
-        this.menu = true
-      }
-    },
     lists: {
       handler: function (val, oldVal) {
         this.selectedLists = this.lists.filter(list => list.posts.includes(this.post.id))
@@ -107,15 +114,20 @@ export default {
     }
   },
   methods: {
-    handleClick () {
-      this.menu = false
-      this.$emit('clicked')
-    },
     async handleChange () {
       await this.$store.dispatch('list/UPDATE_POST_LIST', {
         lists: this.selectedLists,
         postId: this.post.id
       })
+    },
+    async addToBookmark () {
+      if (!this.isPostBookmarked) {
+        await this.$store.dispatch('list/ADD_POST_TO_LIST', this.post.id)
+      }
+    },
+    async openListDialog () {
+      this.menu = false
+      await this.$store.dispatch('list/OPEN_LIST_DIALOG', this.post.id)
     }
   }
 

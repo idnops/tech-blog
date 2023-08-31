@@ -3,6 +3,7 @@
     <TheNavBar />
     <v-main>
       <Nuxt />
+      <create-bookmark-list />
     </v-main>
     <v-footer
       :absolute="!fixed"
@@ -15,12 +16,13 @@
 
 <script>
 import TheNavBar from '~/components/navigation/TheNavBar.vue'
+import CreateBookmarkList from '~/components/posts/CreateBookmarkList.vue'
 export default {
   name: 'DefaultLayout',
-  components: { TheNavBar },
+  components: { TheNavBar, CreateBookmarkList },
   data () {
     return {
-      dark: true,
+      dark: false,
       clipped: false,
       drawer: false,
       fixed: false,

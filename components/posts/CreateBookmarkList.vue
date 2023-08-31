@@ -54,13 +54,9 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  props: {
-    open: {
-      type: Boolean,
-      required: true
-    }
-  },
   data () {
     return {
       dialog: false,
@@ -72,15 +68,19 @@ export default {
       isValid: false
     }
   },
+  computed: {
+    ...mapGetters({
+      listDialog: 'list/DIALOG',
+      triggerId: 'list/TRIGGER_ID'
+    })
+  },
   watch: {
-    open () {
-      if (this.open) {
-        this.dialog = true
-      }
+    listDialog () {
+      this.dialog = this.listDialog
     },
     dialog () {
-      if (!this.dialog) {
-        this.$emit('closed')
+      if (this.dialog === false) {
+        this.$store.dispatch('list/CLOSE_LIST_DIALOG')
       }
     }
   },
@@ -89,6 +89,7 @@ export default {
       this.name = ''
       this.description = ''
       this.isValid = false
+      this.$refs.form.resetValidation()
     },
     async handleSubmit () {
       this.$refs.form.validate()
@@ -101,6 +102,7 @@ export default {
       }
 
       await this.$store.dispatch('list/CREATE_BOOKMARK_LIST', list)
+      await this.$store.dispatch('list/ADD_POST_TO_LIST', { list, postId: this.triggerId })
       this.resetForm()
       this.dialog = false
     }
