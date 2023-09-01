@@ -4,13 +4,13 @@
     absolute
     min-width="240"
     left
-    :top="bottom"
+    :top="!top"
     nudge-right="30"
     :nudge-bottom="top ? '30' : ''"
-    :nudge-top="bottom ? '30' : ''"
+    :nudge-top="!top ? '30' : ''"
   >
     <template #activator="{on : onMenu}">
-      <v-tooltip v-model="tooltip" :top="top" :bottom="bottom" open-delay="300" color="black">
+      <v-tooltip v-model="tooltip" :top="top" :bottom="!top" open-delay="300" color="black">
         <template #activator="{ on: onTooltip }">
           <v-btn
             icon
@@ -124,11 +124,8 @@ export default {
   props: {
     top: {
       type: Boolean,
-      required: true
-    },
-    bottom: {
-      type: Boolean,
-      required: true
+      required: false,
+      default: () => true
     }
   },
   data () {

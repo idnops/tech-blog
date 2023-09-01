@@ -4,12 +4,10 @@
       <v-container>
         <v-divider class="mb-6" />
         <v-breadcrumbs :items="crumbs" class="pa-0 my-6" />
-        <post-header
-          :title="currentPost.title"
-          :author="currentPost.author"
-          :avatar="currentPost.avatar"
-          :date="currentPost.created_at"
-        />
+      </v-container>
+    </section>
+    <section>
+      <v-container>
         <post-item :post="currentPost" />
       </v-container>
     </section>
@@ -27,11 +25,10 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import PostHeader from '~/components/posts/PostHeader.vue'
-import PostItem from '~/components/posts/PostItem.vue'
-import PostFooter from '~/components/posts/PostFooter.vue'
+import PostItem from '~/components/post/PostItem.vue'
+import PostFooter from '~/components/post/PostFooter.vue'
 export default {
-  components: { PostHeader, PostItem, PostFooter },
+  components: { PostItem, PostFooter },
   async asyncData ({ store }) {
     await store.dispatch('blog/FETCH_BLOG_POSTS')
   },

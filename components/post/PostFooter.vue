@@ -47,7 +47,7 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import PostCardMedium from './PostCardMedium.vue'
+import PostCardMedium from './card/PostCardMedium.vue'
 import profile from '~/mixins/profile.js'
 export default {
   components: { PostCardMedium },

@@ -1,6 +1,21 @@
 <template>
   <div>
-    <post-item-controls :post="post" />
+    <post-header
+      :title="post.title"
+      :author="post.author"
+      :avatar="post.avatar"
+      :date="post.created_at"
+    />
+    <div class="post-buttons d-flex align-center justify-space-between py-2">
+      <div class="post-stats">
+        <post-like :like-count="345" />
+        <post-comment :comment-count="28" />
+      </div>
+      <div class="post-actions">
+        <post-bookmark :post="post" :top="true" />
+        <post-share :top="true" />
+      </div>
+    </div>
     <div class="content my-4">
       <div class="post-image">
         <v-img :src="`/posts/${post.img}.jpg`" :lazy-src="`/posts/${post.img}_thumbnail.png`" height="400" class="rounded" />
@@ -26,16 +41,30 @@
           {{ tag }}
         </v-chip>
       </div>
-      <post-item-controls class="mt-4" position="bottom" :post="post" />
+      <div class="post-buttons d-flex align-center justify-space-between py-2 mt-4">
+        <div class="post-stats">
+          <post-like :like-count="345" />
+          <post-comment :comment-count="28" />
+        </div>
+        <div class="post-actions">
+          <post-bookmark :post="post" :top="false" />
+          <post-share :top="false" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import moment from 'moment'
-import PostItemControls from './PostItemControls.vue'
+import PostHeader from './PostHeader.vue'
+import PostBookmark from './button/PostBookmark.vue'
+import PostComment from './button/PostComment.vue'
+import PostLike from './button/PostLike.vue'
+import PostShare from './button/PostShare.vue'
+
 export default {
-  components: { PostItemControls },
+  components: { PostHeader, PostLike, PostComment, PostBookmark, PostShare },
   props: {
     post: {
       type: Object,
@@ -57,6 +86,10 @@ export default {
 
 <style lang="scss" scoped>
 @import '~vuetify/src/styles/styles.sass';
+
+.post-buttons{
+  min-height: 50px;
+}
 
 p{
     font-size: 20px;

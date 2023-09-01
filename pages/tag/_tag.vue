@@ -55,7 +55,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import PostCardMedium from '~/components/posts/PostCardMedium.vue'
+import PostCardMedium from '~/components/post/card/PostCardMedium.vue'
 export default {
   components: { PostCardMedium },
   data () {

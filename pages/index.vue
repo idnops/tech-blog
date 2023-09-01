@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <section class="carousel">
-      <the-post-carousel :posts="posts" />
+      <the-carousel :posts="posts" />
     </section>
     <section class="cards mt-12 pb-12">
       <div class="header py-6">
@@ -21,10 +21,10 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import ThePostCarousel from '~/components/posts/ThePostCarousel.vue'
-import PostCardMedium from '~/components/posts/PostCardMedium.vue'
+import TheCarousel from '~/components/carousel/TheCarousel.vue'
+import PostCardMedium from '~/components/post/card/PostCardMedium.vue'
 export default {
-  components: { ThePostCarousel, PostCardMedium },
+  components: { TheCarousel, PostCardMedium },
   data () {
     return {
       page: 1

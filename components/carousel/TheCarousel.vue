@@ -45,6 +45,11 @@ export default {
 </script>
 
 <style lang="scss">
+.swiper-slide{
+  border-radius: 4px;
+  overflow: hidden;
+}
+
 .swiper-slide:not(.swiper-slide-active, .swiper-slide-next){
   .post-details{
     opacity: 0;

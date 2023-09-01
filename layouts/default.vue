@@ -26,7 +26,7 @@
 
 <script>
 import TheNavBar from '~/components/navigation/TheNavBar.vue'
-import CreateBookmarkList from '~/components/posts/CreateBookmarkList.vue'
+import CreateBookmarkList from '~/components/post/CreateBookmarkList.vue'
 export default {
   name: 'DefaultLayout',
   components: { TheNavBar, CreateBookmarkList },

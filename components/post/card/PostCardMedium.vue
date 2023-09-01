@@ -29,8 +29,8 @@
       <div class="mt-4" />
       <v-card-actions class="px-0 d-flex justify-space-between">
         <div>
-          <post-like-button :small="true" :like-count="26" />
-          <post-comment-button :small="true" :comment-count="12" />
+          <post-like :small="true" :like-count="26" />
+          <post-comment :small="true" :comment-count="12" />
         </div>
         <div>
           <post-bookmark :small="true" :top="false" :bottom="true" :post="post" />
@@ -42,12 +42,12 @@
 
 <script>
 import moment from 'moment'
-import PostLikeButton from './PostLikeButton.vue'
-import PostCommentButton from './PostCommentButton.vue'
-import PostBookmark from './PostBookmark.vue'
+import PostLike from '../button/PostLike.vue'
+import PostComment from '../button/PostComment.vue'
+import PostBookmark from '../button/PostBookmark.vue'
 import profile from '~/mixins/profile.js'
 export default {
-  components: { PostLikeButton, PostCommentButton, PostBookmark },
+  components: { PostLike, PostComment, PostBookmark },
   mixins: [profile],
   props: {
     post: {
