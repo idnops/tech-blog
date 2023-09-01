@@ -18,6 +18,7 @@
         <post-footer
           :author="currentPost.author"
           avatar="/avatar.jpg"
+          :post-id="currentPost.id"
         />
       </v-container>
     </section>

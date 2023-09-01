@@ -4,13 +4,13 @@
       <v-hover v-slot="{ hover }">
         <div class="wrapper">
           <div class="post-image">
-            <v-img :src="`/posts/${post.img}`" height="540" width="420" :class="{'img-on-hover': hover}" />
+            <v-img :src="`/posts/${post.img}.jpg`" :lazy-src="`/posts/${post.img}_thumbnail.png`" height="540" width="420" :class="{'img-on-hover': hover}" />
           </div>
 
           <div class="post-details">
-            <span class="tag text-uppercase font-weight-bold text-caption">{{ post.category }}</span>
+            <span class="tag text-uppercase font-weight-bold text-caption">{{ post.tags[0] }}</span>
             <h4 class="title text-h4">
-              {{ post.title | truncate(40, '...') }}
+              {{ post.title | truncate(35, '...') }}
             </h4>
             <div class="author d-flex align-center">
               <v-avatar size="42" color="white">

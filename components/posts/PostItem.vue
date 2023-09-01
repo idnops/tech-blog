@@ -3,7 +3,7 @@
     <post-item-controls :post="post" />
     <div class="content my-4">
       <div class="post-image">
-        <v-img :src="`/posts/${post.img}`" height="400" class="rounded" />
+        <v-img :src="`/posts/${post.img}.jpg`" :lazy-src="`/posts/${post.img}_thumbnail.png`" height="400" class="rounded" />
       </div>
       <div class="post-content py-4">
         <p>
@@ -22,7 +22,7 @@
     </div>
     <div class="post-footer">
       <div class="tags">
-        <v-chip v-for="tag in tags" :key="tag" class="text-capitalize mr-4">
+        <v-chip v-for="tag in post.tags" :key="tag" nuxt :to="`/tag/${tag}`" class="text-capitalize mr-2">
           {{ tag }}
         </v-chip>
       </div>
@@ -44,8 +44,7 @@ export default {
   },
   data () {
     return {
-      follow: false,
-      tags: ['technology', 'programming', 'gadgets', 'hardware', 'computer science']
+      follow: false
     }
   },
   computed: {

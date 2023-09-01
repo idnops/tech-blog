@@ -1,7 +1,7 @@
 <template>
   <v-hover v-slot="{ hover }">
-    <v-card flat nuxt :to="`/post/${post.slug}`" :ripple="false">
-      <v-img :src="`/posts/${post.img}`" height="250" :class="{'img-on-hover': hover}" />
+    <v-card flat nuxt :to="`/post/${post.slug}`" :ripple="false" color="transparent">
+      <v-img :src="`/posts/${post.img}.jpg`" :lazy-src="`/posts/${post.img}_thumbnail.png`" height="250" :class="{'img-on-hover': hover}" />
       <div class="author mt-6">
         <div class="d-flex justify-space-between">
           <div>
@@ -23,7 +23,7 @@
           {{ post.title | truncate(60, '...') }}
         </v-card-title>
         <v-card-text class="pa-0">
-          {{ post.content | truncate(160, '...') }}
+          {{ post.description | truncate(120, '...') }}
         </v-card-text>
       </div>
       <div class="mt-4" />
@@ -86,6 +86,6 @@ export default {
 }
 .post-content{
     padding: 0;
-    height: 160px;
+    height: 110px;
 }
 </style>

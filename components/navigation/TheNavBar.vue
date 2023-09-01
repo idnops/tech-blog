@@ -6,13 +6,13 @@
       </nuxt-link>
 
       <v-toolbar-items>
-        <navigation-link to="/?tag=news">
+        <navigation-link to="/tag/news">
           news
         </navigation-link>
-        <navigation-link to="/?tag=tech">
+        <navigation-link to="/tag/tech">
           technology
         </navigation-link>
-        <navigation-link to="/?tag=politics">
+        <navigation-link to="/tag/politics">
           politics
         </navigation-link>
       </v-toolbar-items>
@@ -26,11 +26,6 @@
             <span>write</span>
           </navigation-link>
         </v-toolbar-items>
-        <v-btn icon small class="mx-1">
-          <v-icon small>
-            mdi-bell-outline
-          </v-icon>
-        </v-btn>
         <the-profile />
       </div>
       <div v-else>

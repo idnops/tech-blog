@@ -19,15 +19,28 @@
     <div class="signature mt-6 mb-8">
       <span class="text-caption">Leader learning to be better Manager. In all of my articles, you will sense thinking in systems, solution-focused coaching practice, and a sip of stoicism.</span>
     </div>
-    <v-divider />
-    <h6 class="text-subtitle-1 font-weight-medium mt-6 mb-8">
-      More from {{ author }}
-    </h6>
-    <v-row>
-      <v-col v-for="post in posts" :key="post.id" cols="4">
-        <post-card-medium :post="post" />
-      </v-col>
-    </v-row>
+    <div v-if="authorPosts.length" class="more pb-12">
+      <v-divider />
+      <h6 class="text-subtitle-1 font-weight-medium mt-6 mb-8">
+        More from {{ author }}
+      </h6>
+      <v-row>
+        <v-col v-for="post in authorPosts" :key="post.id" cols="4">
+          <post-card-medium :post="post" />
+        </v-col>
+      </v-row>
+    </div>
+    <div v-if="suggestedPosts.length" class="suggestions">
+      <v-divider />
+      <h6 class="text-subtitle-1 font-weight-medium mt-6 mb-8">
+        Recommendations from same topic
+      </h6>
+      <v-row>
+        <v-col v-for="post in suggestedPosts" :key="post.id" cols="4">
+          <post-card-medium :post="post" />
+        </v-col>
+      </v-row>
+    </div>
   </div>
 </template>
 
@@ -48,13 +61,27 @@ export default {
       type: String,
       required: false,
       default: () => ''
+    },
+    postId: {
+      type: Number,
+      required: true
     }
 
   },
   computed: {
     ...mapGetters({
       posts: 'blog/POSTS'
-    })
+    }),
+    authorPosts () {
+      const authorPosts = this.posts.filter(post => post.author === this.author)
+      const index = authorPosts.findIndex(post => post.id === this.id)
+      authorPosts.splice(index, 1)
+      return authorPosts
+    },
+    suggestedPosts () {
+      const currentPost = this.posts.find(post => post.id === this.postId)
+      return this.posts.filter(post => post.tags.some(tag => currentPost.tags.includes(tag)))
+    }
   }
 
 }
