@@ -3,7 +3,7 @@
     <section>
       <v-container>
         <v-divider class="mb-6" />
-        <v-breadcrumbs :items="crumbs" class="pa-0 my-6" />
+        <v-breadcrumbs :items="crumbs" class="pa-0 my-6 text-capitalize" />
       </v-container>
     </section>
     <section>
@@ -17,6 +17,7 @@
           :author="currentPost.author"
           avatar="/avatar.jpg"
           :post-id="currentPost.id"
+          :signature="currentPost.signature"
         />
       </v-container>
     </section>
@@ -32,28 +33,25 @@ export default {
   async asyncData ({ store }) {
     await store.dispatch('blog/FETCH_BLOG_POSTS')
   },
-  data () {
-    return {
-      crumbs: [
-        {
-          text: 'Home',
-          disabled: false,
-          href: '/'
-        },
-        {
-          text: 'Gadget',
-          disabled: false,
-          href: '/?tag=gadget'
-        }
-      ]
-    }
-  },
   computed: {
     ...mapGetters({
       posts: 'blog/POSTS'
     }),
     currentPost () {
       return this.posts.find(post => post.slug === this.$route.params.slug)
+    },
+    crumbs () {
+      return [
+        {
+          text: 'home',
+          href: '/'
+        },
+        {
+          text: this.currentPost.tags[0],
+          disabled: false,
+          href: `/tag/${this.currentPost.tags[0]}`
+        }
+      ]
     },
     dark () {
       return this.$vuetify.theme.dark
@@ -66,10 +64,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~vuetify/src/styles/settings/_variables';
+
 .footer.dark{
   background-color: #fff;
 }
 .footer.light{
   background-color: #1e1e1e;
+}
+
+@media #{map-get($display-breakpoints, 'xs-only')} {
+    section{
+      padding: 14px;
+    }
 }
 </style>

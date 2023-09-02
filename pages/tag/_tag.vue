@@ -26,7 +26,7 @@
         recommended stories
       </h2>
       <v-row v-if="loading">
-        <v-col v-for="n in 6" :key="n" cols="4">
+        <v-col v-for="n in 6" :key="n" cols="12" sm="6" lg="4">
           <v-skeleton-loader
             type="card, paragraph"
             height="532"
@@ -34,7 +34,7 @@
         </v-col>
       </v-row>
       <v-row v-else>
-        <v-col v-for="post in posts" :key="post.id" cols="4">
+        <v-col v-for="post in posts" :key="post.id" cols="12" sm="6" lg="4">
           <post-card-medium :post="post" />
         </v-col>
       </v-row>
@@ -128,7 +128,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~vuetify/src/styles/settings/_variables';
+
 .title{
     letter-spacing: -0.05em !important;
+}
+
+@media #{map-get($display-breakpoints, 'xs-only')} {
+    section{
+      padding: 14px;
+    }
 }
 </style>

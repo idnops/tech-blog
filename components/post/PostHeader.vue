@@ -1,8 +1,11 @@
 <template>
   <div class="header">
-    <h1 class="text-h3 font-weight-bold post-title">
+    <h1 class="font-weight-bold post-title text-h4 text-md-h3">
       {{ title }}
     </h1>
+    <h2 class="text-h5 my-2 post-description">
+      {{ description }}
+    </h2>
     <div class="author-info d-flex align-center my-6">
       <v-avatar size="52" :color="dark ? 'white' : 'black'">
         <v-img v-if="avatar" :src="avatar" />
@@ -48,6 +51,10 @@ export default {
       type: String,
       required: true
     },
+    description: {
+      type: String,
+      required: true
+    },
     author: {
       type: String,
       required: true
@@ -80,14 +87,13 @@ export default {
 
 <style lang="scss" scoped>
 @import '~vuetify/src/styles/styles.sass';
-.post-title{
-    width: 50%;
+.post-title, .post-description{
+    width: 70%;
 }
 
-@media #{map-get($display-breakpoints, 'sm-and-down')} {
-    .post-title {
+@media #{map-get($display-breakpoints, 'md-and-down')} {
+    .post-title, .post-description {
       width: 100%;
-      line-height: 28px;
     }
 }
 

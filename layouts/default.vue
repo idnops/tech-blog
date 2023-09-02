@@ -16,7 +16,7 @@
         <div class="d-flex align-center justify-space-between">
           <span>&copy; {{ new Date().getFullYear() }}</span>
           <nuxt-link to="/">
-            <v-img src="/app-logo.svg" alt="" height="30" width="50" />
+            <the-logo-static />
           </nuxt-link>
         </div>
       </v-container>
@@ -27,9 +27,10 @@
 <script>
 import TheNavBar from '~/components/navigation/TheNavBar.vue'
 import CreateBookmarkList from '~/components/post/CreateBookmarkList.vue'
+import TheLogoStatic from '~/components/navigation/TheLogoStatic.vue'
 export default {
   name: 'DefaultLayout',
-  components: { TheNavBar, CreateBookmarkList },
+  components: { TheNavBar, CreateBookmarkList, TheLogoStatic },
   data () {
     return {
       dark: false

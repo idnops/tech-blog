@@ -172,6 +172,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~vuetify/src/styles/settings/_variables';
+
 .auth-content{
     margin-left: 100px;
     padding: 30px 60px 0;
@@ -188,5 +190,17 @@ export default {
     position: absolute;
     right: 15px;
     top: 36px;
+}
+
+@media #{map-get($display-breakpoints, 'md-and-down')} {
+    .auth-content{
+      margin: 0;
+      min-width: 540px;
+    }
+}
+@media #{map-get($display-breakpoints, 'xs-only')} {
+    .auth-content{
+      min-width: 450px;
+    }
 }
 </style>

@@ -13,11 +13,11 @@
       </h5>
       <span class="text-caption">1,903 Followers</span>
     </div>
-    <v-btn small elevation="0" class="text-capitalize text-caption">
-      follow
+    <v-btn small elevation="0" class="text-capitalize text-caption" @click="follow = !follow">
+      {{ follow ? 'following' : 'follow' }}
     </v-btn>
     <div class="signature mt-6 mb-8">
-      <span class="text-caption">Leader learning to be better Manager. In all of my articles, you will sense thinking in systems, solution-focused coaching practice, and a sip of stoicism.</span>
+      <span class="text-caption">{{ signature }}</span>
     </div>
     <div v-if="authorPosts.length" class="more pb-12">
       <v-divider />
@@ -25,7 +25,7 @@
         More from {{ author }}
       </h6>
       <v-row>
-        <v-col v-for="post in authorPosts" :key="post.id" cols="4">
+        <v-col v-for="post in authorPosts" :key="post.id" cols="12" sm="6" lg="4">
           <post-card-medium :post="post" />
         </v-col>
       </v-row>
@@ -36,7 +36,7 @@
         Recommendations from same topic
       </h6>
       <v-row>
-        <v-col v-for="post in suggestedPosts" :key="post.id" cols="4">
+        <v-col v-for="post in suggestedPosts" :key="post.id" cols="12" sm="6" lg="4">
           <post-card-medium :post="post" />
         </v-col>
       </v-row>
@@ -57,6 +57,10 @@ export default {
       type: String,
       required: true
     },
+    signature: {
+      type: String,
+      required: true
+    },
     avatar: {
       type: String,
       required: false,
@@ -68,19 +72,24 @@ export default {
     }
 
   },
+  data () {
+    return {
+      follow: false
+    }
+  },
   computed: {
     ...mapGetters({
       posts: 'blog/POSTS'
     }),
     authorPosts () {
-      const authorPosts = this.posts.filter(post => post.author === this.author)
-      const index = authorPosts.findIndex(post => post.id === this.id)
-      authorPosts.splice(index, 1)
-      return authorPosts
+      return this.posts.filter(post => post.author === this.author && post.id !== this.postId)
     },
     suggestedPosts () {
       const currentPost = this.posts.find(post => post.id === this.postId)
-      return this.posts.filter(post => post.tags.some(tag => currentPost.tags.includes(tag)))
+      const suggestedPosts = this.posts.filter(post => post.tags.some(tag => currentPost.tags.includes(tag)))
+      const index = suggestedPosts.findIndex(post => post.id === this.id)
+      suggestedPosts.splice(index, 1)
+      return suggestedPosts
     }
   }
 
@@ -88,7 +97,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~vuetify/src/styles/styles.sass';
+
 .signature{
     width: 50%;
+}
+
+@media #{map-get($display-breakpoints, 'md-and-down')} {
+    .signature {
+      width: 70%;
+    }
+}
+
+@media #{map-get($display-breakpoints, 'xs-only')} {
+    .signature {
+      width: 100%;
+    }
 }
 </style>

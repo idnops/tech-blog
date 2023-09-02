@@ -2,14 +2,15 @@
   <div>
     <post-header
       :title="post.title"
+      :description="post.description"
       :author="post.author"
       :avatar="post.avatar"
       :date="post.created_at"
     />
     <div class="post-buttons d-flex align-center justify-space-between py-2">
       <div class="post-stats">
-        <post-like :like-count="345" />
-        <post-comment :comment-count="28" />
+        <post-like :like-count="post.likes" />
+        <post-comment :comment-count="post.comments" />
       </div>
       <div class="post-actions">
         <post-bookmark :post="post" :top="true" />
@@ -43,8 +44,8 @@
       </div>
       <div class="post-buttons d-flex align-center justify-space-between py-2 mt-4">
         <div class="post-stats">
-          <post-like :like-count="345" />
-          <post-comment :comment-count="28" />
+          <post-like :like-count="post.likes" />
+          <post-comment :comment-count="post.comments" />
         </div>
         <div class="post-actions">
           <post-bookmark :post="post" :top="false" />

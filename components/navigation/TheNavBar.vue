@@ -5,15 +5,15 @@
         <the-logo />
       </nuxt-link>
 
-      <v-toolbar-items>
-        <navigation-link to="/tag/news">
-          news
+      <v-toolbar-items class="d-none d-sm-block">
+        <navigation-link to="/tag/blockchain">
+          blockchain
         </navigation-link>
-        <navigation-link to="/tag/tech">
+        <navigation-link to="/tag/technology">
           technology
         </navigation-link>
-        <navigation-link to="/tag/politics">
-          politics
+        <navigation-link to="/tag/programming">
+          programming
         </navigation-link>
       </v-toolbar-items>
       <v-spacer />

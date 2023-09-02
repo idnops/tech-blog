@@ -1,58 +1,68 @@
 [
     {
         "id": 1,
-        "author": "John Philip",
-        "slug": "choosing_between_vuejs_and_nuxtjs",
-        "title": "Choosing Between Vue.js and Nuxt.js: The Development Dilemma",
-        "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe minus officia aliquid, culpa ratione recusandae harum perferendis repudiandae tempore provident dignissimos blanditiis sit nisi doloremque, dicta aliquam repellendus rerum? Qui.",
+        "author": "Michele Remonato",
+        "signature": "I work for a digital software publisher. I design and implement software architectures in Angular and Java. I trust software craft, clean code and tdd.",
+        "slug": "embracin_the_universal_charger_era",
+        "title": "Embracing the Universal Charger Era: One Cable to Connect Them All",
+        "description": "How the EU’s New Charging Standard Will Change our Digital Lives and Protect the Environment",
         "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio modi fuga iusto excepturi eaque accusamus distinctio",
         "tags": [
             "gadget",
             "tech",
             "electronics",
             "device",
-            "watch"
+            "charger",
+            "cable"
         ],
         "img": "1",
+        "likes" : 227,
+        "comments": 43,
         "created_at": "2023-08-25T18:25:43.511Z"
     },
     {
         "id": 2,
-        "author": "Gabe A, M.Sc",
-        "slug": "10_signs_youre_not_cut_out_for_a_programming_career",
-        "title": "10 Signs You’re Not Cut Out for a Programming Career",
-        "description": "Deciding Between Vue.js and Nuxt.js: Factors to Consider",
+        "author": "Boris Bodin",
+        "signature": "I work for a digital software publisher. I design and implement software architectures in Angular and Java. I trust software craft, clean code and tdd.",
+        "slug": "understanding_decorators_in_typeScript",
+        "title": "Understanding Decorators in TypeScript",
+        "description": "In this article, we embark on a journey to demystify decorators in TypeScript.",
         "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio modi fuga iusto excepturi eaque accusamus distinctio laudantium consectetur animi dicta voluptate nostrum quibusdam minus illo doloremque, aperiam eveniet facere officiis repellendus a aut est quia vero! Dolor modi molestiae laboriosam laudantium iure esse iste voluptates dolorem maxime sint quae mollitia eum, exercitationem cumque aut ullam voluptatum nemo debitis quos, animi necessitatibus. Illo impedit id obcaecati asperiores illum voluptatum, in sit nihil voluptatibus! Itaque dolore esse explicabo non sunt accusantium nihil animi necessitatibus repellat id ad soluta et dicta nulla incidunt ea adipisci ratione exercitationem a impedit vel, praesentium beatae ut.",
         "tags": [
-            "gadget",
-            "tech",
-            "electronics",
-            "device",
-            "watch"
+            "typescript",
+            "development",
+            "programming",
+            "decorators"
         ],
         "img": "2",
+        "likes" : 65,
+        "comments": 5,
         "created_at": "2023-08-26T18:25:43.511Z"
     },
     {
         "id": 3,
         "author": "Digital Technology",
+        "signature": "I work for a digital software publisher. I design and implement software architectures in Angular and Java. I trust software craft, clean code and tdd.",
         "slug": "the_effect_of_digital_money_mining_on_pc_equipment_market",
         "title": "The Effect of Digital money Mining on PC Equipment Market",
-        "description": "Deciding Between Vue.js and Nuxt.js: Factors to Consider",
+        "description": "One of the most remarkable effects of digital currency mining on the PC equipment market",
         "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio modi fuga iusto excepturi eaque accusamus distinctio laudantium consectetur animi dicta voluptate nostrum quibusdam minus illo doloremque, aperiam eveniet facere officiis repellendus a aut est quia vero! Dolor modi molestiae laboriosam laudantium iure esse iste voluptates dolorem maxime sint quae mollitia eum, exercitationem cumque aut ullam voluptatum nemo debitis quos, animi necessitatibus. Illo impedit id obcaecati asperiores illum voluptatum, in sit nihil voluptatibus! Itaque dolore esse explicabo non sunt accusantium nihil animi necessitatibus repellat id ad soluta et dicta nulla incidunt ea adipisci ratione exercitationem a impedit vel, praesentium beatae ut.",
         "tags": [
-            "gadget",
-            "tech",
+            "mining",
+            "crypto",
             "electronics",
             "device",
             "watch"
         ],
         "img": "3",
+        "likes" : 146,
+        "comments": 25,
         "created_at": "2023-08-28T18:25:43.511Z"
     },
     {
         "id": 4,
         "author": "Gokhan Yalcuk",
+        "signature": "I work for a digital software publisher. I design and implement software architectures in Angular and Java. I trust software craft, clean code and tdd.",
         "slug": "why_do_smart_watch_uers_suddenly_have_panic_attacks",
         "title": "Why Do Smart Watch Users Suddenly Have Panic Attacks?",
         "description": "As a person who has experienced panic attacks in the past and overcome them on his own, my findings and suggestions",
@@ -65,108 +75,124 @@
             "watch"
         ],
         "img": "4",
+        "likes" : 98,
+        "comments": 7,
         "created_at": "2023-08-29T12:25:43.511Z"
     },
     {
         "id": 5,
-        "author": "Aydin Yagubov",
-        "slug": "keep_your_gadets_neat",
-        "title": "always keep your gadget neat an tidy",
-        "description": "Deciding Between Vue.js and Nuxt.js: Factors to Consider",
+        "author": "Buttler Camlord",
+        "signature": "I work for a digital software publisher. I design and implement software architectures in Angular and Java. I trust software craft, clean code and tdd.",
+        "slug": "how_to_build_a_pnb_with_chatgpt",
+        "title": "How To Build a PBN With ChatGPT — $50,000 Per Month?",
+        "description": "A Private Blog Network (PBN) is a group of high-authority websites that are created to link back to a target website in order to improve its search engine rankings.",
         "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio modi fuga iusto excepturi eaque accusamus distinctio laudantium consectetur animi dicta voluptate nostrum quibusdam minus illo doloremque, aperiam eveniet facere officiis repellendus a aut est quia vero! Dolor modi molestiae laboriosam laudantium iure esse iste voluptates dolorem maxime sint quae mollitia eum, exercitationem cumque aut ullam voluptatum nemo debitis quos, animi necessitatibus. Illo impedit id obcaecati asperiores illum voluptatum, in sit nihil voluptatibus! Itaque dolore esse explicabo non sunt accusantium nihil animi necessitatibus repellat id ad soluta et dicta nulla incidunt ea adipisci ratione exercitationem a impedit vel, praesentium beatae ut.",
         "tags": [
-            "gadget",
-            "tech",
-            "electronics",
-            "device",
-            "watch"
+            "chatgpt",
+            "artificial intelligence",
+            "make money online",
+            "digital marketing"
         ],
         "img": "5",
+        "likes" : 45,
+        "comments": 3,
         "created_at": "2023-08-29T13:25:43.511Z"
     },
     {
         "id": 6,
         "author": "John Philip",
+        "signature": "I work for a digital software publisher. I design and implement software architectures in Angular and Java. I trust software craft, clean code and tdd.",
         "slug": "choosing_between_vuejs_and_nuxtjs",
         "title": "Choosing Between Vue.js and Nuxt.js: The Development Dilemma",
         "description": "Deciding Between Vue.js and Nuxt.js: Factors to Consider",
-        "tags": [
-            "gadget",
-            "tech",
-            "electronics",
-            "device",
-            "watch"
-        ],
         "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio modi fuga iusto excepturi eaque accusamus distinctio",
-        "img": "1",
+        "tags": [
+            "nuxt",
+            "vue",
+            "frontend",
+            "development",
+            "framework"
+        ],
+        "img": "6",
+        "likes" : 3,
+        "comments": 0,
         "created_at": "2023-08-25T18:25:43.511Z"
     },
     {
         "id": 7,
-        "author": "Gabe A, M.Sc",
-        "slug": "10_signs_youre_not_cut_out_for_a_programming_career",
-        "title": "10 Signs You’re Not Cut Out for a Programming Career",
-        "description": "Deciding Between Vue.js and Nuxt.js: Factors to Consider",
+        "author": "Areon Network",
+        "signature": "A block-chain ecosystem featuring the world’s first Proof of Area algorithm. Available on Binance smart chain as a token until block chain development is finish",
+        "slug": "what_is_a_testnet_and_how_to_join_it",
+        "title": "What is a Testnet and how to join it?",
+        "description": "As the word suggests, it is a test network. Developers use a testing platform to try their codes, the chain’s transactions, new apps and much more..",
         "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio modi fuga iusto excepturi eaque accusamus distinctio laudantium consectetur animi dicta voluptate nostrum quibusdam minus illo doloremque, aperiam eveniet facere officiis repellendus a aut est quia vero! Dolor modi molestiae laboriosam laudantium iure esse iste voluptates dolorem maxime sint quae mollitia eum, exercitationem cumque aut ullam voluptatum nemo debitis quos, animi necessitatibus. Illo impedit id obcaecati asperiores illum voluptatum, in sit nihil voluptatibus! Itaque dolore esse explicabo non sunt accusantium nihil animi necessitatibus repellat id ad soluta et dicta nulla incidunt ea adipisci ratione exercitationem a impedit vel, praesentium beatae ut.",
         "tags": [
-            "gadget",
-            "tech",
-            "electronics",
-            "device",
-            "watch"
+            "blockchain",
+            "development",
+            "testnet",
+            "layer1"
         ],
-        "img": "2",
+        "img": "7",
+        "likes" : 65,
+        "comments": 5,
         "created_at": "2023-08-26T18:25:43.511Z"
     },
     {
         "id": 8,
-        "author": "Digital Technology",
-        "slug": "the_effect_of_digital_money_mining_on_pc_equipment_market",
-        "title": "The Effect of Digital money Mining on PC Equipment Market",
-        "description": "Deciding Between Vue.js and Nuxt.js: Factors to Consider",
+        "author": "Areon Network",
+        "signature": "A block-chain ecosystem featuring the world’s first Proof of Area algorithm. Available on Binance smart chain as a token until block chain development is finish",
+        "slug": "staking_system",
+        "title": "Staking System",
+        "description": "Unlock the Logic of Winning with Areon Network Staking: Embrace AREA Tokens for Passive Income and Rewards",
         "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio modi fuga iusto excepturi eaque accusamus distinctio laudantium consectetur animi dicta voluptate nostrum quibusdam minus illo doloremque, aperiam eveniet facere officiis repellendus a aut est quia vero! Dolor modi molestiae laboriosam laudantium iure esse iste voluptates dolorem maxime sint quae mollitia eum, exercitationem cumque aut ullam voluptatum nemo debitis quos, animi necessitatibus. Illo impedit id obcaecati asperiores illum voluptatum, in sit nihil voluptatibus! Itaque dolore esse explicabo non sunt accusantium nihil animi necessitatibus repellat id ad soluta et dicta nulla incidunt ea adipisci ratione exercitationem a impedit vel, praesentium beatae ut.",
         "tags": [
-            "gadget",
-            "tech",
-            "electronics",
-            "device",
-            "watch"
+            "blockchain",
+            "development",
+            "testnet",
+            "staking"
         ],
-        "img": "3",
+        "img": "8",
+        "likes" : 549,
+        "comments": 127,
         "created_at": "2023-08-28T18:25:43.511Z"
     },
     {
         "id": 9,
-        "author": "Aydin Yagubov",
-        "slug": "keep_your_gadets_neat",
-        "title": "always keep your gadget neat an tidy",
-        "description": "Deciding Between Vue.js and Nuxt.js: Factors to Consider",
+        "author": "Abdelmalek Merouan",
+        "signature": "I work for a digital software publisher. I design and implement software architectures in Angular and Java. I trust software craft, clean code and tdd.",
+        "slug": "how_to_make_vuejs_3000_times_faster",
+        "title": "How to make Vue.js 3000 times faster",
+        "description": "Prepare yourself for an exciting journey as we delve deep into the world of optimization",
         "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio modi fuga iusto excepturi eaque accusamus distinctio laudantium consectetur animi dicta voluptate nostrum quibusdam minus illo doloremque, aperiam eveniet facere officiis repellendus a aut est quia vero! Dolor modi molestiae laboriosam laudantium iure esse iste voluptates dolorem maxime sint quae mollitia eum, exercitationem cumque aut ullam voluptatum nemo debitis quos, animi necessitatibus. Illo impedit id obcaecati asperiores illum voluptatum, in sit nihil voluptatibus! Itaque dolore esse explicabo non sunt accusantium nihil animi necessitatibus repellat id ad soluta et dicta nulla incidunt ea adipisci ratione exercitationem a impedit vel, praesentium beatae ut.",
         "tags": [
-            "gadget",
-            "tech",
-            "electronics",
-            "device",
-            "watch"
+            "nuxt",
+            "vue",
+            "frontend",
+            "development",
+            "framework"
         ],
-        "img": "4",
+        "img": "9",
+        "likes" : 69,
+        "comments": 12,
         "created_at": "2023-08-29T12:25:43.511Z"
     },
     {
         "id": 10,
-        "author": "Aydin Yagubov",
-        "slug": "keep_your_gadets_neat",
-        "title": "always keep your gadget neat an tidy",
-        "description": "Deciding Between Vue.js and Nuxt.js: Factors to Consider",
+        "author": "SM Raiyyan",
+        "signature": "Passionately curious, often wrong, and learning.",
+        "slug": "11_secret_ai_websites_to_complete_hours_of_Work_in_just_minutes",
+        "title": "11 Secret AI Websites to Complete Hours of Work in Just Minutes",
+        "description": "Turns out, laziness is the mother of AI invention ;)",
         "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio modi fuga iusto excepturi eaque accusamus distinctio laudantium consectetur animi dicta voluptate nostrum quibusdam minus illo doloremque, aperiam eveniet facere officiis repellendus a aut est quia vero! Dolor modi molestiae laboriosam laudantium iure esse iste voluptates dolorem maxime sint quae mollitia eum, exercitationem cumque aut ullam voluptatum nemo debitis quos, animi necessitatibus. Illo impedit id obcaecati asperiores illum voluptatum, in sit nihil voluptatibus! Itaque dolore esse explicabo non sunt accusantium nihil animi necessitatibus repellat id ad soluta et dicta nulla incidunt ea adipisci ratione exercitationem a impedit vel, praesentium beatae ut.",
         "tags": [
-            "gadget",
-            "tech",
-            "electronics",
-            "device",
-            "watch"
+            "chatgpt",
+            "artificial intelligence",
+            "programming",
+            "coding"
         ],
-        "img": "5",
+        "img": "10",
+        "likes" : 342,
+        "comments": 26,
         "created_at": "2023-08-29T13:25:43.511Z"
     }
 ]

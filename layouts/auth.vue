@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <div class="main-container">
-      <section class="auth-sidebar">
+      <section class="auth-sidebar d-none d-lg-block">
         <div class="auth-sidebar-content">
           <video
             playsinline=""
@@ -34,6 +34,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~vuetify/src/styles/settings/_variables';
+
 .main-container{
     display: flex;
     flex-direction: row;
@@ -72,5 +74,11 @@ main{
     flex-grow: 1;
     align-items: center;
     justify-content: flex-start;
+}
+
+@media #{map-get($display-breakpoints, 'md-and-down')} {
+    .content{
+      align-items: center;
+    }
 }
 </style>

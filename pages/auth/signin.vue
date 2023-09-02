@@ -148,6 +148,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~vuetify/src/styles/settings/_variables';
+
 .auth-content{
     margin-left: 100px;
     padding: 30px 60px 0;
@@ -182,5 +184,17 @@ label{
     font-size: 14px;
     color: #000;
     font-weight: 500;
+}
+
+@media #{map-get($display-breakpoints, 'md-and-down')} {
+    .auth-content{
+      margin: 0;
+      min-width: 540px;
+    }
+}
+@media #{map-get($display-breakpoints, 'xs-only')} {
+    .auth-content{
+      min-width: 450px;
+    }
 }
 </style>
