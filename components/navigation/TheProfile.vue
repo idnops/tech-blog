@@ -19,6 +19,21 @@
     </template>
 
     <v-list dense>
+      <v-list-item-group class="d-block d-sm-none">
+        <v-list-item>
+          <v-list-item-icon class="mr-2">
+            <v-icon small>
+              mdi-pencil-box
+            </v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title class="text-body-2 text-capitalize font-weight-regular">
+              write
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-divider class="my-2" />
+      </v-list-item-group>
       <v-list-item-group>
         <v-list-item nuxt to="/me/profile">
           <v-list-item-icon class="mr-2">
@@ -56,7 +71,7 @@
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-divider class="my-4" />
+        <v-divider class="my-2" />
         <v-list-item nuxt to="/me/settings">
           <v-list-item-content>
             <v-list-item-title class="text-body-2 text-capitalize font-weight-regular">
@@ -71,7 +86,7 @@
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-divider class="my-4" />
+        <v-divider class="my-2" />
         <v-list-item @click="signOut">
           <v-list-item-content>
             <v-list-item-title class="text-body-2 text-capitalize font-weight-regular">

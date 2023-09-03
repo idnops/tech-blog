@@ -19,7 +19,7 @@
       <v-spacer />
       <div v-if="user" class="d-flex align-center">
         <v-toolbar-items>
-          <navigation-link>
+          <navigation-link class="d-none d-sm-block">
             <v-icon class="mr-1">
               mdi-pencil-box
             </v-icon>
@@ -42,7 +42,7 @@
         </v-btn>
       </div>
 
-      <the-theme-toggler class="ml-1" />
+      <the-theme-toggler class="ml-1 d-none d-sm-block" />
     </v-toolbar>
   </v-container>
 </template>
