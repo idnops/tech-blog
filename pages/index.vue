@@ -1,76 +1,75 @@
 <template>
-  <v-container>
-    <section class="carousel d-none d-lg-block mb-12">
-      <the-carousel :posts="posts" />
-    </section>
-    <section class="content pb-12">
-      <div class="header py-6">
-        <h2 class="text-h4 font-weight-bold text-capitalize title">
-          Latest stories
-        </h2>
-        <v-btn
-          small
-          plain
-          :ripple="false"
-          class="text-capitalize text-body-1 pa-0"
-          nuxt
-          to="/tag/latest"
-        >
-          view all
-        </v-btn>
+  <div>
+    <div class="tabs-wrapper mt-2">
+      <div class="tabs">
+        <the-tabs @change="handleChange($event)" />
       </div>
-      <v-row>
-        <v-col v-for="post in posts" :key="post.id" cols="12" sm="6" lg="4">
-          <post-card-medium :post="post" />
-        </v-col>
-      </v-row>
-    </section>
-  </v-container>
+    </div>
+
+    <div v-if="loading" class="content">
+      <post-card-default-skeleton v-for="n in 4" :key="n" />
+    </div>
+    <div v-else class="content">
+      <post-card-default v-for="post in posts" :key="post.id" :post="post" />
+    </div>
+  </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import TheCarousel from '~/components/carousel/TheCarousel.vue'
-import PostCardMedium from '~/components/post/card/PostCardMedium.vue'
+import PostCardDefault from '~/components/post/card/PostCardDefault.vue'
+import PostCardDefaultSkeleton from '~/components/skeletons/PostCardDefaultSkeleton.vue'
+
+import TheTabs from '~/components/TheTabs.vue'
+
 export default {
-  components: { TheCarousel, PostCardMedium },
+  components: { TheTabs, PostCardDefault, PostCardDefaultSkeleton },
   data () {
     return {
-      page: 1
+      loading: false
     }
   },
+
   async fetch () {
     await this.$store.dispatch('blog/FETCH_BLOG_POSTS')
   },
-  head: {
-    title: 'Your story needs to br written!',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'Your story needs to br written!'
-      }
-    ]
-  },
   computed: {
     ...mapGetters({
-      posts: 'blog/ACTIVE_POSTS',
-      carouselPosts: 'blog/CAROUSEL,POSTS'
+      posts: 'blog/POSTS'
     })
+  },
+  created () {
+    this.loading = true
+    setTimeout(() => {
+      this.loading = false
+    }, 3000)
+  },
+  methods: {
+    handleChange (url) {
+      this.loading = true
+      setTimeout(() => {
+        this.loading = false
+      }, 1000)
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import '~vuetify/src/styles/settings/_variables';
+@import '~vuetify/src/styles/styles.sass';
 
-.title{
-    letter-spacing: -0.05em !important;
+.tabs-wrapper{
+  position: sticky;
+  top: 0;
+  background-color: map-get($material-light, 'background');
+  z-index: 10;
+}
+.tabs{
+  max-width: 860px;
 }
 
-@media #{map-get($display-breakpoints, 'xs-only')} {
-    .content{
-      padding: 14px;
-    }
+.content{
+  margin-top: 48px;
+  padding-right: 100px;
 }
 </style>

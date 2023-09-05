@@ -1,50 +1,36 @@
 <template>
-  <v-container>
-    <v-toolbar elevation="0" color="transparent" height="64">
-      <nuxt-link to="/">
-        <the-logo />
-      </nuxt-link>
-
-      <v-toolbar-items class="d-none d-sm-block">
-        <navigation-link to="/tag/blockchain">
-          blockchain
-        </navigation-link>
-        <navigation-link to="/tag/technology">
-          technology
-        </navigation-link>
-        <navigation-link to="/tag/programming">
-          programming
+  <v-toolbar elevation="0" color="transparent" height="56">
+    <nuxt-link to="/">
+      <the-logo />
+    </nuxt-link>
+    <v-spacer />
+    <div v-if="user" class="d-flex align-center">
+      <v-toolbar-items>
+        <navigation-link class="d-none d-sm-block">
+          <v-icon class="mr-1">
+            mdi-pencil-box
+          </v-icon>
+          <span>write</span>
         </navigation-link>
       </v-toolbar-items>
-      <v-spacer />
-      <div v-if="user" class="d-flex align-center">
-        <v-toolbar-items>
-          <navigation-link class="d-none d-sm-block">
-            <v-icon class="mr-1">
-              mdi-pencil-box
-            </v-icon>
-            <span>write</span>
-          </navigation-link>
-        </v-toolbar-items>
-        <the-profile />
-      </div>
-      <div v-else>
-        <v-btn
+      <the-profile />
+    </div>
+    <div v-else>
+      <v-btn
 
-          :dark="!dark"
-          :light="dark"
-          elevation="0"
-          :color="signInButtonColor"
-          class="font-weight-regular text-capitalize mx-1"
-          to="/auth/signin"
-        >
-          sign in
-        </v-btn>
-      </div>
+        :dark="!dark"
+        :light="dark"
+        elevation="0"
+        :color="signInButtonColor"
+        class="font-weight-regular text-capitalize mx-1"
+        to="/auth/signin"
+      >
+        sign in
+      </v-btn>
+    </div>
 
-      <the-theme-toggler class="ml-1 d-none d-sm-block" />
-    </v-toolbar>
-  </v-container>
+    <the-theme-toggler class="ml-1 d-none d-sm-block" />
+  </v-toolbar>
 </template>
 
 <script>

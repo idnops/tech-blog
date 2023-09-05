@@ -1,6 +1,10 @@
 <template>
   <v-container>
-    <v-divider />
+    <div class="chips-wrapper mt-2">
+      <div class="chips">
+        <the-chips />
+      </div>
+    </div>
     <section class="header my-12">
       <h1 class="text-h4 font-weight-bold text-capitalize title">
         {{ tag }}
@@ -46,6 +50,7 @@
           :total-visible="7"
           circle
           light
+          right
           @input="paginate"
         />
       </div>
@@ -56,8 +61,10 @@
 <script>
 import { mapGetters } from 'vuex'
 import PostCardMedium from '~/components/post/card/PostCardMedium.vue'
+import TheChips from '~/components/TheChips.vue'
 export default {
-  components: { PostCardMedium },
+  components: { PostCardMedium, TheChips },
+  layout: 'clean',
   data () {
     return {
       follow: false,
@@ -127,11 +134,15 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '~vuetify/src/styles/settings/_variables';
 
 .title{
     letter-spacing: -0.05em !important;
+}
+
+.v-pagination__navigation, .v-pagination__item--active, .v-pagination__item{
+  box-shadow: none;
 }
 
 @media #{map-get($display-breakpoints, 'xs-only')} {

@@ -110,4 +110,13 @@ blockquote{
     padding-left: 10px;
     padding-right: 0;
 }
+
+.v-chip.v-size--default{
+  height: 36px;
+  padding: 18px;
+  border-radius: 24px;
+  margin: 5px 5px 5px 0;
+  text-transform: capitalize;
+  font-size: 0.75rem;
+}
 </style>

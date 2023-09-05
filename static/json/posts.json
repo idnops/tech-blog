@@ -2,6 +2,7 @@
     {
         "id": 1,
         "author": "Michele Remonato",
+        "avatar": "avatar",
         "signature": "I work for a digital software publisher. I design and implement software architectures in Angular and Java. I trust software craft, clean code and tdd.",
         "slug": "embracin_the_universal_charger_era",
         "title": "Embracing the Universal Charger Era: One Cable to Connect Them All",
@@ -23,7 +24,7 @@
     {
         "id": 2,
         "author": "Boris Bodin",
-        "signature": "I work for a digital software publisher. I design and implement software architectures in Angular and Java. I trust software craft, clean code and tdd.",
+        "signature": "🔥 SR Frontend Dev from Amazon 🛒 Interviews 🎁 Web 3.0 🔬 Micro Frontend 🅰️ Angular 📊 d3 ⚛️ React 🧐 Monorepo",
         "slug": "understanding_decorators_in_typeScript",
         "title": "Understanding Decorators in TypeScript",
         "description": "In this article, we embark on a journey to demystify decorators in TypeScript.",
@@ -42,7 +43,7 @@
     {
         "id": 3,
         "author": "Digital Technology",
-        "signature": "I work for a digital software publisher. I design and implement software architectures in Angular and Java. I trust software craft, clean code and tdd.",
+        "signature": "Help Beginners To Build $10k/month Online.",
         "slug": "the_effect_of_digital_money_mining_on_pc_equipment_market",
         "title": "The Effect of Digital money Mining on PC Equipment Market",
         "description": "One of the most remarkable effects of digital currency mining on the PC equipment market",

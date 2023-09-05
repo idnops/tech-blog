@@ -67,7 +67,8 @@ export default {
 @import '~vuetify/src/styles/settings/_variables';
 
 .footer.dark{
-  background-color: #fff;
+  background-color: #F9F9F9
+  ;
 }
 .footer.light{
   background-color: #1e1e1e;

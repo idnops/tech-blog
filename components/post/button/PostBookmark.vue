@@ -41,7 +41,7 @@
         <v-list-item v-for="list in lists" :key="list.name" :value="list">
           <template #default="{ active }">
             <v-list-item-action>
-              <v-checkbox color="grey" :input-value="active" />
+              <v-checkbox color="black" :input-value="active" />
             </v-list-item-action>
 
             <v-list-item-content>
@@ -132,6 +132,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.theme--light.v-btn.v-btn--icon{
+  color: rgba(0, 0, 0, 0.6);
+
+  &:hover{
+    color: rgba(0, 0, 0, 1);
+  }
+}
 .v-menu__content{
     border-radius: 8px;
 }

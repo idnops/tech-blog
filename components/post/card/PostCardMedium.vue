@@ -12,7 +12,8 @@
           <div class="d-flex justify-space-between">
             <div>
               <v-avatar size="30" :color="dark ? 'white' : 'black'">
-                <v-img v-if="post.avatar" :src="post.avatar" />
+                <v-img v-if="post.avatar" :src="`/${post.avatar}.jpg`" />
+
                 <span
                   v-else
                   class="text-caption text-uppercase"

@@ -159,6 +159,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.theme--light.v-btn.v-btn--icon{
+  color: rgba(0, 0, 0, 0.6);
+
+  &:hover{
+    color: rgba(0, 0, 0, 1);
+  }
+}
+
 .v-menu__content{
     border-radius: 8px;
 }
