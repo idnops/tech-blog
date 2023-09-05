@@ -58,7 +58,6 @@
                 :title="post ? post.title : ''"
                 :description="post ? post.description : ''"
                 :quote="post ? post.quote : ''"
-                :hashtags="post ? post.tags : ''"
                 :media="post ? `/posts/${post.img}` : ''"
               >
                 share on facebook
@@ -81,7 +80,6 @@
                 :title="post ? post.title : ''"
                 :description="post ? post.description : ''"
                 :quote="post ? post.quote : ''"
-                :hashtags="post ? post.tags : ''"
                 :media="post ? `/posts/${post.img}` : ''"
               >
                 share on twitter
@@ -104,7 +102,6 @@
                 :title="post ? post.title : ''"
                 :description="post ? post.description : ''"
                 :quote="post ? post.quote : ''"
-                :hashtags="post ? post.tags : ''"
                 :media="post ? `/posts/${post.img}` : ''"
               >
                 share on linkedin

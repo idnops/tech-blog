@@ -1,14 +1,14 @@
 <template>
-  <v-toolbar elevation="0" color="transparent" height="56">
+  <v-app-bar elevation="0" color="transparent" height="56" app absolute>
     <nuxt-link to="/">
       <the-logo />
     </nuxt-link>
     <v-spacer />
     <div v-if="user" class="d-flex align-center">
       <v-toolbar-items>
-        <navigation-link class="d-none d-sm-block">
+        <navigation-link class="d-none d-sm-block" to="/new">
           <v-icon class="mr-1">
-            mdi-pencil-box
+            mdi-pencil-outline
           </v-icon>
           <span>write</span>
         </navigation-link>
@@ -30,7 +30,7 @@
     </div>
 
     <the-theme-toggler class="ml-1 d-none d-sm-block" />
-  </v-toolbar>
+  </v-app-bar>
 </template>
 
 <script>
@@ -62,5 +62,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.theme--light.v-app-bar.v-toolbar{
 
+  &::before{
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0,0,0, 0.05);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+  }
+}
 </style>

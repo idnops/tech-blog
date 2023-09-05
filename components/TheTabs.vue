@@ -3,10 +3,8 @@
     <v-tabs
       height="60"
       center-active
-      background-color="transparent"
       slider-size="1"
       class="tabs"
-      color="black"
       :ripple="false"
       @change="handleChange"
     >
@@ -128,6 +126,87 @@ export default {
     display:none !important;
 }
 
+.tabs.theme--dark{
+  .v-tabs-bar{
+    background-color: map-get($material-dark, 'background');
+  }
+
+  .v-tabs-slider{
+    background-color: white;
+  }
+
+  .v-item-group{
+    &::after{
+      background: rgba(255, 255, 255, 0.05) !important;
+    }
+  }
+
+  .v-tab{
+    color: rgba(255, 255, 255, 0.6) !important;
+
+    &:hover,&:focus{
+      color: rgba(255, 255, 255, 1) !important;
+    }
+  }
+
+  .v-tab--active{
+    color: rgba(255, 255, 255, 1) !important;
+  }
+
+  .v-slide-group__prev,.v-slide-group__next{
+        .v-icon{
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        &:hover{
+            .v-icon{
+                color: rgba(255, 255, 255, 1) !important;
+            }
+        }
+    }
+
+}
+
+.tabs.theme--light{
+  .v-tabs-bar{
+    background-color: map-get($material-light, 'background');
+  }
+
+  .v-tabs-slider{
+    background-color: black;
+  }
+
+  .v-item-group{
+    &::after{
+      background: rgba(0, 0, 0, 0.05) !important;
+    }
+  }
+
+  .v-tab{
+    color: rgba(0, 0, 0, 0.6) !important;
+
+    &:hover,&:focus{
+      color: rgba(0, 0, 0, 1) !important;
+    }
+  }
+
+  .v-tab--active{
+    color: rgba(0, 0, 0, 1) !important;
+  }
+
+  .v-slide-group__prev,.v-slide-group__next{
+        .v-icon{
+            color: rgba(0, 0, 0, 0.6) !important;
+        }
+
+        &:hover{
+            .v-icon{
+                color: rgba(0, 0, 0, 1) !important;
+            }
+        }
+    }
+
+}
 .tabs{
 
     .v-item-group{
@@ -136,7 +215,6 @@ export default {
             position: absolute;
             width: 100%;
             height: 1px;
-            background: rgba(0, 0, 0, 0.05);
             bottom: 0;
         }
     }
@@ -157,10 +235,6 @@ export default {
         }
     }
 
-    .v-tab--active{
-        color: rgba(0, 0, 0, 1) !important;
-    }
-
     .v-slide-group__prev,.v-slide-group__next{
         .v-icon{
             color: rgba(0, 0, 0, 0.6) !important;
@@ -169,7 +243,6 @@ export default {
         &:hover{
             .v-icon{
                 color: rgba(0, 0, 0, 1) !important;
-
             }
         }
     }
@@ -179,14 +252,29 @@ export default {
     position: absolute;
     top: 12px;
     left: 8px;
-    .v-btn__content{
-            color: rgba(0, 0, 0, 0.6);
-        }
+}
 
-    &:hover{
-        .v-btn__content{
-            color: rgba(0, 0, 0, 1);
-        }
+.add.theme--light{
+  .v-btn__content{
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  &:hover{
+    .v-btn__content{
+      color: rgba(0, 0, 0, 1);
     }
+  }
+}
+
+.add.theme--dark{
+  .v-btn__content{
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  &:hover{
+    .v-btn__content{
+      color: rgba(255, 255, 255, 1);
+    }
+  }
 }
 </style>

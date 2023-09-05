@@ -9,16 +9,16 @@
       <h1 class="text-h4 font-weight-bold text-capitalize title">
         {{ tag }}
       </h1>
-      <div class="text-caption">
-        <span class="mr-1">Tag</span>
+      <div class="text-caption mt-4">
+        <span class="mr-1">Topic</span>
         <span class="mx-1">31K Followers</span>
         <span class="mx-1">257 Stories</span>
       </div>
       <v-btn
-        small
         elevation="0"
         class="text-capitalize text-caption mt-2"
         outlined
+        rounded
         color="grey"
         @click="follow = !follow"
       >
@@ -31,10 +31,7 @@
       </h2>
       <v-row v-if="loading">
         <v-col v-for="n in 6" :key="n" cols="12" sm="6" lg="4">
-          <v-skeleton-loader
-            type="card, paragraph"
-            height="532"
-          />
+          <post-card-medium-skeleton />
         </v-col>
       </v-row>
       <v-row v-else>
@@ -60,10 +57,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import PostCardMedium from '~/components/post/card/PostCardMedium.vue'
 import TheChips from '~/components/TheChips.vue'
+import PostCardMedium from '~/components/post/card/PostCardMedium.vue'
+import PostCardMediumSkeleton from '~/components/skeletons/PostCardMediumSkeleton.vue'
 export default {
-  components: { PostCardMedium, TheChips },
+  components: { TheChips, PostCardMedium, PostCardMediumSkeleton },
   layout: 'clean',
   data () {
     return {
@@ -106,7 +104,7 @@ export default {
       }
     }
   },
-  async mounted () {
+  async created () {
     this.loading = true
     if (this.$route.query.page) {
       this.page = +this.$route.query.page
@@ -114,22 +112,25 @@ export default {
       this.page = 1
     }
     await this.$store.dispatch('blog/SET_ACTIVE_LIST', this.page)
-    this.loading = false
+    setTimeout(() => {
+      this.loading = false
+    }, 1000)
   },
   methods: {
     async paginate (page) {
+      this.loading = true
       if (page > 1) {
-        this.loading = true
         await this.$store.dispatch('blog/SET_ACTIVE_LIST', page)
         this.$router.push(`/tag/${this.tag}?page=${page}`)
-        this.loading = false
       } else {
-        this.loading = true
         await this.$store.dispatch('blog/SET_ACTIVE_LIST', 1)
         this.$router.push(`/tag/${this.tag}`)
-        this.loading = false
       }
+      setTimeout(() => {
+        this.loading = false
+      }, 1000)
     }
+
   }
 }
 </script>

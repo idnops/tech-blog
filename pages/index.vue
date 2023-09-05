@@ -30,8 +30,8 @@ export default {
     }
   },
 
-  async fetch () {
-    await this.$store.dispatch('blog/FETCH_BLOG_POSTS')
+  async fetch (context) {
+    await context.store.dispatch('blog/FETCH_BLOG_POSTS')
   },
   computed: {
     ...mapGetters({
@@ -61,11 +61,11 @@ export default {
 .tabs-wrapper{
   position: sticky;
   top: 0;
-  background-color: map-get($material-light, 'background');
+
   z-index: 10;
 }
 .tabs{
-  max-width: 860px;
+  max-width: 862px;
 }
 
 .content{

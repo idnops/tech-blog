@@ -2,14 +2,15 @@
   <div class="post-card-saved-tiny my-6">
     <div class="post-details d-flex align-center">
       <div class="post-author">
-        <v-avatar size="25" color="black" rounded>
+        <v-avatar size="25" :color="dark ? 'white' : 'black'" rounded>
           <v-img v-if="post.avatar" :src="`/${post.avatar}.jpg`" />
           <span
             v-else
-            class="user-initials text-uppercase white--text"
+            class="user-initials text-uppercase"
+            :class="[dark ? 'black--text' : 'white--text']"
           >{{ getInitials(post.author) }}</span>
         </v-avatar>
-        <span class="text-caption black--text pl-2">{{ post.author }}</span>
+        <span class="text-caption pl-2" :class="[!dark ? 'black--text' : 'white--text']">{{ post.author }}</span>
       </div>
     </div>
     <div class="post-content">
@@ -21,7 +22,7 @@
         </div>
       </nuxt-link>
     </div>
-    <div class="post-published text-caption grey--text text--darken-1 d-flex align-center">
+    <div class="post-published text-caption d-flex align-center" :class="[!dark ? 'grey--text text--darken-1' : 'grey--text text--lighten-1']">
       <span>{{ published }}</span>
       <div class="dot" />
       <span>5 min read</span>
@@ -42,6 +43,9 @@ export default {
     }
   },
   computed: {
+    dark () {
+      return this.$vuetify.theme.dark
+    },
     published () {
       return moment(this.post.created_at).format('DD MMM')
     }

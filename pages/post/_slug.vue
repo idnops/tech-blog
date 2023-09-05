@@ -2,7 +2,6 @@
   <div>
     <section>
       <v-container>
-        <v-divider class="mb-6" />
         <v-breadcrumbs :items="crumbs" class="pa-0 my-6 text-capitalize" />
       </v-container>
     </section>
@@ -30,6 +29,7 @@ import PostItem from '~/components/post/PostItem.vue'
 import PostFooter from '~/components/post/PostFooter.vue'
 export default {
   components: { PostItem, PostFooter },
+  layout: 'clean',
   async asyncData ({ store }) {
     await store.dispatch('blog/FETCH_BLOG_POSTS')
   },

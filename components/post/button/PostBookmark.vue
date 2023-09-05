@@ -14,7 +14,7 @@
       <v-tooltip :top="top" :bottom="!top" open-delay="300" color="black">
         <template #activator="{ on: onTooltip }">
           <v-btn
-            icon
+            class="mr-2"
             plain
             :ripple="false"
             v-on="{...onMenu, ...onTooltip}"
@@ -132,6 +132,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.v-btn:not(.v-btn--round).v-size--default{
+  height: auto;
+  min-width: auto;
+  padding: 0;
+}
+
+.v-btn__content{
+  justify-content: flex-start;
+}
+
 .theme--light.v-btn.v-btn--icon{
   color: rgba(0, 0, 0, 0.6);
 

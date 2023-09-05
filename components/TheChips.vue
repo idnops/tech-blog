@@ -5,8 +5,7 @@
         v-for="tag in tags"
         :key="tag.name"
         nuxt
-        exact
-        exact-active-class="tag-active"
+        active-class="tag-active"
         :to="`/tag/${tag.url}`"
         color="grey lighten-3"
       >
@@ -21,34 +20,6 @@ export default {
   data () {
     return {
       tags: [
-        {
-          name: 'Software development',
-          url: 'software-development'
-        },
-        {
-          name: 'Web 3',
-          url: 'web-3'
-        },
-        {
-          name: 'Data science',
-          url: 'data-science'
-        },
-        {
-          name: 'React',
-          url: 'react'
-        },
-        {
-          name: 'UX design',
-          url: 'ux-design'
-        },
-        {
-          name: 'Flutter',
-          url: 'flutter'
-        },
-        {
-          name: 'Phyton',
-          url: 'phyton'
-        },
         {
           name: 'Software development',
           url: 'software-development'

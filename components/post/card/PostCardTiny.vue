@@ -2,14 +2,16 @@
   <div class="post-card-tiny my-4">
     <div class="post-details d-flex align-center">
       <div class="post-author">
-        <v-avatar size="25" color="black">
+        <v-avatar size="25" :color="dark ? 'white' : 'black'">
           <v-img v-if="post.avatar" :src="`/${post.avatar}.jpg`" />
+
           <span
             v-else
-            class="user-initials text-uppercase white--text"
+            class="user-initials text-uppercase"
+            :class="[dark ? 'black--text' : 'white--text']"
           >{{ getInitials(post.author) }}</span>
         </v-avatar>
-        <span class="text-caption black--text pl-2">{{ post.author }}</span>
+        <span class="text-caption pl-2" :class="[!dark ? 'black--text' : 'white--text']">{{ post.author }}</span>
       </div>
     </div>
     <div class="post-content">
@@ -32,6 +34,11 @@ export default {
     post: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    dark () {
+      return this.$vuetify.theme.dark
     }
   }
 }

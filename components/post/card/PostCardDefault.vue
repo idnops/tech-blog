@@ -1,25 +1,26 @@
 <template>
-  <div class="post-card-default py-8">
+  <div class="post-card-default py-8" :class="[dark ? 'theme--dark' : 'theme--light']">
     <div class="post-details d-flex align-center">
       <div class="post-author">
-        <v-avatar size="30" color="black">
+        <v-avatar size="30" :color="dark ? 'white' : 'black'">
           <v-img v-if="post.avatar" :src="`/${post.avatar}.jpg`" />
 
           <span
             v-else
-            class="text-caption text-uppercase white--text"
+            class="text-caption text-uppercase"
+            :class="[dark ? 'black--text' : 'white--text']"
           >{{ getInitials(post.author) }}</span>
         </v-avatar>
-        <span class="text-caption black--text pl-2">{{ post.author }}</span>
+        <span class="text-caption pl-2" :class="[!dark ? 'black--text' : 'white--text']">{{ post.author }}</span>
       </div>
       <div class="dot" />
-      <div class="post-published text-caption grey--text text--darken-1">
+      <div class="post-published text-caption" :class="[!dark ? 'grey--text text--darken-1' : 'grey--text text--lighten-1']">
         {{ published }}
       </div>
     </div>
     <div class="d-flex">
       <div class="post-content">
-        <nuxt-link :to="`/post/${post.slug}`" tag="div">
+        <n-link :to="`/post/${post.slug}`" tag="div">
           <div class="post-body my-2">
             <div class="post-title font-weight-bold text-h6">
               {{ post.title | truncate(90, '...') }}
@@ -28,13 +29,13 @@
               {{ post.description | truncate(250, '...') }}
             </div>
           </div>
-        </nuxt-link>
+        </n-link>
         <div class="post-actions d-flex align-center justify-space-between text-capitalize mt-8">
           <div class="post-tag">
-            <v-chip small class="mr-2" color="grey lighten-3" nuxt :to="`/tag/${post.tags[0]}`">
+            <v-chip small class="mr-2" :color="!dark ? 'grey lighten-3' : 'grey darken-2'" nuxt :to="`/tag/${post.tags[0]}`">
               {{ post.tags[0] }}
             </v-chip>
-            <span class="text-caption grey--text text--darken-1">5 min read</span>
+            <span class="text-caption" :class="[!dark ? 'grey--text text--darken-1' : 'grey--text text--lighten-1']">5 min read</span>
           </div>
           <div class="post-button">
             <post-bookmark :post="post" />
@@ -48,7 +49,7 @@
         </div>
       </div>
       <div class="post-image">
-        <nuxt-link :to="`/post/${post.slug}`">
+        <n-link :to="`/post/${post.slug}`">
           <v-img
             :src="`/posts/${post.img}.jpg`"
             :lazy-src="`/posts/${post.img}_thumbnail.png`"
@@ -57,7 +58,7 @@
             aspect-ratio="1"
             class="rounded"
           />
-        </nuxt-link>
+        </n-link>
       </div>
     </div>
   </div>
@@ -78,6 +79,9 @@ export default {
     }
   },
   computed: {
+    dark () {
+      return this.$vuetify.theme.dark
+    },
     published () {
       return moment(this.post.created_at).format('DD MMM')
     }
@@ -101,22 +105,25 @@ export default {
     margin: 0 6px;
 }
 
-.post-card-default:not(:first-child){
-    border-top: 1px solid rgba(0,0,0, 0.05);
+.post-card-default.theme--light:not(:first-child){
+  border-top: 1px solid rgba(0,0,0, 0.05);
+}
+.post-card-default.theme--dark:not(:first-child){
+  border-top: 1px solid rgba(255,255,255, 0.05);
 }
 
 .post-content{
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 
-    .post-body{
-        cursor: pointer;
-    }
+  .post-body{
+    cursor: pointer;
+  }
 
-    .post-description{
-        min-height: 70px;
-        font-family: Noto-Serif, serif;
-        font-size: 18px;
-    }
+  .post-description{
+    min-height: 70px;
+    font-family: Noto-Serif, serif;
+    font-size: 18px;
+  }
 }
 
 .post-image{

@@ -2,10 +2,9 @@
   <v-tooltip top open-delay="300" color="black">
     <template #activator="{ on, attrs }">
       <v-btn
-        icon
+        class="mr-2"
         plain
         :ripple="false"
-        class="mr-4"
         v-bind="attrs"
         v-on="on"
         @click.prevent
@@ -13,7 +12,7 @@
         <v-icon :small="small">
           mdi-comment-outline
         </v-icon>
-        <span class="comments">{{ commentCount }}</span>
+        <span v-if="commentCount > 0" class="comments">{{ commentCount }}</span>
       </v-btn>
     </template>
     <span>Comment</span>
@@ -45,6 +44,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.v-btn:not(.v-btn--round).v-size--default{
+  height: auto;
+  min-width: auto;
+  padding: 0;
+}
+
+.v-btn__content{
+  justify-content: flex-start;
+}
+
 .theme--light.v-btn.v-btn--icon{
   color: rgba(0, 0, 0, 0.6);
 

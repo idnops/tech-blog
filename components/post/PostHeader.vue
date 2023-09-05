@@ -8,7 +8,7 @@
     </h2>
     <div class="author-info d-flex align-center my-6">
       <v-avatar size="52" :color="dark ? 'white' : 'black'">
-        <v-img v-if="avatar" :src="avatar" />
+        <v-img v-if="avatar" :src="`/${avatar}.jpg`" />
         <span
           v-else
           class="text-caption text-uppercase"
