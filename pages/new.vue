@@ -12,6 +12,7 @@ import TextEditor from '~/components/TextEditor.vue'
 
 export default {
   components: { TextEditor },
+  middleware: 'auth',
   computed: {
     ...mapGetters({
       content: 'post/DRAFT'

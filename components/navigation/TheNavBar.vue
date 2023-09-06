@@ -4,20 +4,22 @@
       <the-logo />
     </nuxt-link>
     <v-spacer />
+    <v-btn
+      rounded
+      elevation="0"
+      outlined
+      class="font-weight-regular text-capitalize mx-1 mr-4"
+      nuxt
+      to="/new"
+    >
+      write
+    </v-btn>
     <div v-if="user" class="d-flex align-center">
-      <v-toolbar-items>
-        <navigation-link class="d-none d-sm-block" to="/new">
-          <v-icon class="mr-1">
-            mdi-pencil-outline
-          </v-icon>
-          <span>write</span>
-        </navigation-link>
-      </v-toolbar-items>
       <the-profile />
     </div>
     <div v-else>
       <v-btn
-
+        rounded
         :dark="!dark"
         :light="dark"
         elevation="0"
@@ -35,7 +37,6 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import NavigationLink from './NavigationLink.vue'
 import TheLogo from './TheLogo.vue'
 import TheProfile from './TheProfile.vue'
 import TheThemeToggler from './TheThemeToggler.vue'
@@ -43,7 +44,6 @@ import TheThemeToggler from './TheThemeToggler.vue'
 export default {
   components: {
     TheLogo,
-    NavigationLink,
     TheThemeToggler,
     TheProfile
   },
