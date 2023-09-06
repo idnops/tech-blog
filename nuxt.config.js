@@ -48,8 +48,28 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    'vue-social-sharing/nuxt'
+    'vue-social-sharing/nuxt',
+    '@nuxtjs/firebase',
   ],
+
+  // Firebase
+  firebase: {
+    config: {
+      apiKey: "AIzaSyB6ZMlKCyG4gfHAWjhTtdKhiEEeBEPSSvM",
+      authDomain: "tech-blog-19baf.firebaseapp.com",
+      projectId: "tech-blog-19baf",
+      storageBucket: "tech-blog-19baf.appspot.com",
+      messagingSenderId: "1097756050005",
+      appId: "1:1097756050005:web:70ab9786fef7bfb3690adc",
+      measurementId: "G-0PFHFJ0H25"
+    },
+    services: {
+      auth: true,
+      firestore: true,
+      storage: true,
+      realtimeDb: true,
+    },
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
@@ -59,7 +79,7 @@ export default {
   },
 
   proxy: {
-    '/api/': {target: 'http://localhost:5000/api/', pathRewrite: {'^/api/' : ''}}
+    // '/api/': {target: 'http://localhost:5000/api/', pathRewrite: {'^/api/' : ''}}
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

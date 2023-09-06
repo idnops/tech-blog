@@ -164,8 +164,21 @@ export default {
     }
   },
   methods: {
-    handeSubmit () {
-      this.$router.push('/')
+    async handleSubmit () {
+      const userDetails = {
+        email: this.email,
+        password: this.password,
+        name: this.name,
+        username: this.username
+      }
+
+      try {
+        this.error = null
+        await this.$store.dispatch('auth/SIGN_UP', userDetails)
+        this.$router.push('/')
+      } catch (error) {
+        this.error = error
+      }
     }
   }
 }

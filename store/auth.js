@@ -1,11 +1,5 @@
-import axios from 'axios'
-
 export const state = () => ({
-  user: {
-    name: 'aydin',
-    username: 'idn',
-    email: 'aydin@write.com'
-  }
+  user: null
 })
 
 export const mutations = {
@@ -18,13 +12,36 @@ export const mutations = {
 }
 
 export const actions = {
-  SIGN_IN: async (ctx, payload) => {
-    const res = await axios.post('/api/auth/signin', payload)
-    ctx.commit('SET_USER', res.data)
+
+  async SIGN_IN ({ commit }, payload) {
+    const { email, password } = payload
+    await this.$fire.auth.signInWithEmailAndPassword(email, password)
+    const user = this.$fire.auth.currentUser
+
+    commit('SET_USER', {
+      name: user.displayName,
+      email: user.email,
+      photoUrl: user.photoUrl,
+      uid: user.uid
+    })
   },
 
-  SIGN_OUT: (ctx) => {
-    ctx.commit('REMOVE_USER')
+  async SIGN_UP ({ commit }, payload) {
+    const { name, username, email, password } = payload
+    await this.$fire.auth.createUserWithEmailAndPassword(email, password, name, username)
+    const user = this.$fire.auth.currentUser
+
+    commit('SET_USER', {
+      name: user.displayName,
+      email: user.email,
+      photoUrl: user.photoUrl,
+      uid: user.uid
+    })
+  },
+
+  async SIGN_OUT ({ commit }) {
+    await this.$fire.auth.signOut()
+    await commit('REMOVE_USER')
   }
 }
 

@@ -139,7 +139,7 @@ export default {
         await this.$store.dispatch('auth/SIGN_IN', userDetails)
         this.$router.push('/')
       } catch (error) {
-        this.error = error.response.data.message
+        this.error = error
       }
     }
   }

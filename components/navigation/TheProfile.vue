@@ -14,7 +14,7 @@
         v-bind="attrs"
         v-on="on"
       >
-        <span class="text-caption text-uppercase" :class="[dark ? 'black--text' : 'white--text']">{{ userInitials }}</span>
+        <span class="text-caption text-uppercase" :class="[dark ? 'black--text' : 'white--text']">{{ getInitials(user.email) }}</span>
       </v-avatar>
     </template>
 
@@ -104,7 +104,10 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import profile from '~/mixins/profile'
+
 export default {
+  mixins: [profile],
   data () {
     return {
       menu: false
@@ -116,14 +119,11 @@ export default {
     },
     ...mapGetters({
       user: 'auth/USER'
-    }),
-    userInitials () {
-      return this.user.name.slice(0, 2)
-    }
+    })
   },
   methods: {
-    signOut () {
-      this.$store.dispatch('auth/SIGN_OUT')
+    async signOut () {
+      await this.$store.dispatch('auth/SIGN_OUT')
       this.$router.push('/auth/signin?message=signout')
     }
   }
