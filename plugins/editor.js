@@ -15,6 +15,7 @@ export default (context, inject) => {
     return new EditorJS({
       ...options.params,
       holder: options.id,
+      logLevel: 'ERROR',
       tools: {
         header: {
           class: Header,

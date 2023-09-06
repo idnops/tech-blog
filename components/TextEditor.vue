@@ -27,11 +27,13 @@ export default {
   methods: {
     async onChange () {
       try {
+        await this.$store.dispatch('post/CHANGE_DRAFT_STATUS', 'saving...')
         const updatedData = await this.editor.save()
-        console.log('Article data saved: ', updatedData)
+        await this.$store.dispatch('post/SAVE_TO_DRAFT', updatedData)
+        await this.$store.dispatch('post/CHANGE_DRAFT_STATUS', 'saved')
         this.$emit('contentChanged', updatedData)
       } catch (error) {
-        console.log('Saving failed: ', error)
+        await this.$store.dispatch('post/CHANGE_DRAFT_STATUS', error)
       }
     }
   }

@@ -7,14 +7,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import TextEditor from '~/components/TextEditor.vue'
+
 export default {
   components: { TextEditor },
-  // layout: 'clean',
-  data () {
-    return {
-      content: null
-    }
+  computed: {
+    ...mapGetters({
+      content: 'post/DRAFT'
+    })
   }
 }
 </script>

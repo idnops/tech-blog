@@ -9,7 +9,7 @@
           mdi-progress-pencil
         </v-icon>
         <div class="d-flex flex-column">
-          <span class="text-body-2 font-weight-bold">259 words</span>
+          <span class="text-body-2 font-weight-bold">{{ wordCount }} words</span>
           <span class="text-caption grey--text">Article's word count</span>
         </div>
       </div>
@@ -18,7 +18,7 @@
           mdi-timer-edit-outline
         </v-icon>
         <div class="d-flex flex-column">
-          <span class="text-body-2 font-weight-bold">4 minutes</span>
+          <span class="text-body-2 font-weight-bold">{{ readingTime }} minutes</span>
           <span class="text-caption grey--text">Reading time based on word count</span>
         </div>
       </div>
@@ -31,15 +31,15 @@
       <div>
         <v-text-field
           outlined
+          filled
           dense
           placeholder="Search topic"
-          persistent-hint="Add or change topics (up to 5) so readers know what your story is about"
           class="text-body-2"
           color="grey lighten-2"
         />
       </div>
 
-      <v-chip-group multiple column>
+      <v-chip-group v-model="selectedTags" multiple column>
         <v-chip
           v-for="tag in tags"
           :key="tag.name"
@@ -47,6 +47,7 @@
           filter-icon="mdi-circle-small"
           pill
           :color="!dark ? 'grey lighten-3' : 'grey darken-2'"
+          :value="tag"
         >
           {{ tag.name }}
         </v-chip>
@@ -60,9 +61,9 @@
       </h2>
       <div>
         <span class="text-body-2">
-          Draft if Aydin Yagubov
+          Draft in Aydin Yagubov
         </span>
-        <span class="text-body-2 grey--text ml-3">Saved</span>
+        <span v-if="draftStatus" class="text-body-2 text-capitalize grey--text ml-3">{{ draftStatus }}</span>
         <div class="d-flex flex-column justify-center mt-6">
           <v-btn
             rounded
@@ -84,9 +85,11 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   data () {
     return {
+      selectedTags: [],
       tags: [
         {
           name: 'Software development',
@@ -117,6 +120,16 @@ export default {
           url: 'phyton'
         }
       ]
+    }
+  },
+  computed: {
+    ...mapGetters({
+      draftStatus: 'post/DRAFT_STATUS',
+      wordCount: 'post/WORD_COUNT',
+      readingTime: 'post/READING_TIME'
+    }),
+    dark () {
+      return this.$vuetify.theme.dark
     }
   }
 }
