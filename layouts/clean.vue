@@ -4,6 +4,7 @@
     <v-divider />
     <v-main>
       <Nuxt />
+      <create-bookmark-list />
     </v-main>
     <v-divider />
     <the-footer />
@@ -13,10 +14,11 @@
 <script>
 import TheNavBar from '~/components/navigation/TheNavBar.vue'
 import TheFooter from '~/components/navigation/TheFooter.vue'
+import CreateBookmarkList from '~/components/post/CreateBookmarkList.vue'
 
 export default {
   name: 'DefaultLayout',
-  components: { TheNavBar, TheFooter },
+  components: { TheNavBar, TheFooter, CreateBookmarkList },
   data () {
     return {
       dark: false

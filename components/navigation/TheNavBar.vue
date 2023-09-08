@@ -7,6 +7,7 @@
     <v-btn
       rounded
       elevation="0"
+      small
       outlined
       class="font-weight-regular text-capitalize mx-1 mr-4"
       nuxt
@@ -20,6 +21,7 @@
     <div v-else>
       <v-btn
         rounded
+        small
         :dark="!dark"
         :light="dark"
         elevation="0"
