@@ -14,7 +14,8 @@
         v-bind="attrs"
         v-on="on"
       >
-        <span class="text-caption text-uppercase" :class="[dark ? 'black--text' : 'white--text']">{{ getInitials(user.email) }}</span>
+        <v-img v-if="user.photoUrl" :src="user.photoUrl" />
+        <span v-else class="text-caption text-uppercase" :class="[dark ? 'black--text' : 'white--text']">{{ getInitials(user.email) }}</span>
       </v-avatar>
     </template>
 

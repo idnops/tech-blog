@@ -13,6 +13,7 @@
       x-large
       block
       class="text-caption text-capitalize"
+      @click="signInWithGoogle"
     >
       <v-icon small class="mr-4">
         mdi-google
@@ -138,6 +139,14 @@ export default {
       try {
         this.error = null
         await this.$store.dispatch('auth/SIGN_IN', userDetails)
+        this.$router.push('/')
+      } catch (error) {
+        this.error = error
+      }
+    },
+    async signInWithGoogle () {
+      try {
+        await this.$store.dispatch('auth/SIGN_IN_WITH_GOOGLE')
         this.$router.push('/')
       } catch (error) {
         this.error = error

@@ -1,4 +1,12 @@
 import Cookie from 'js-cookie'
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut
+} from 'firebase/auth'
 
 export const state = () => ({
   user: null
@@ -17,35 +25,56 @@ export const actions = {
 
   async SIGN_IN ({ commit }, payload) {
     const { email, password } = payload
-    await this.$fire.auth.signInWithEmailAndPassword(email, password)
 
-    const user = this.$fire.auth.currentUser
-    const token = await user.getIdToken()
-    Cookie.set('access_token', token)
+    const auth = getAuth()
+    const { user } = await signInWithEmailAndPassword(auth, email, password)
+
+    Cookie.set('access_token', user.accessToken)
 
     commit('SET_USER', {
       name: user.displayName,
       email: user.email,
-      photoUrl: user.photoUrl,
+      photoUrl: user.photoURL,
+      uid: user.uid
+    })
+  },
+
+  async SIGN_IN_WITH_GOOGLE ({ commit }, payload) {
+    const provider = new GoogleAuthProvider()
+
+    const auth = getAuth()
+    const { user } = await signInWithPopup(auth, provider)
+
+    Cookie.set('access_token', user.accessToken)
+
+    commit('SET_USER', {
+      name: user.displayName,
+      email: user.email,
+      photoUrl: user.photoURL,
       uid: user.uid
     })
   },
 
   async SIGN_UP ({ commit }, payload) {
-    const { name, username, email, password } = payload
-    await this.$fire.auth.createUserWithEmailAndPassword(email, password, name, username)
-    const user = this.$fire.auth.currentUser
+    const { email, password } = payload
+
+    const auth = getAuth()
+    const { user } = await createUserWithEmailAndPassword(auth, email, password)
+
+    Cookie.set('access_token', user.accessToken)
 
     commit('SET_USER', {
       name: user.displayName,
       email: user.email,
-      photoUrl: user.photoUrl,
+      photoUrl: user.photoURL,
       uid: user.uid
     })
   },
 
   async SIGN_OUT ({ commit }) {
-    await this.$fire.auth.signOut()
+    const auth = getAuth()
+
+    await signOut(auth)
     Cookie.remove('access_token')
     commit('REMOVE_USER')
   }

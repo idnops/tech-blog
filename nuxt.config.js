@@ -31,6 +31,7 @@ export default {
   plugins: [
     { src: '~/plugins/filters.js'},
     { src: '~/plugins/editor.js', mode: 'client' },
+    { src: '~/plugins/firebase.js'}
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -49,28 +50,8 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     'vue-social-sharing/nuxt',
-    '@nuxtjs/firebase',
   ],
-
-  // Firebase
-  firebase: {
-    config: {
-      apiKey: "AIzaSyB6ZMlKCyG4gfHAWjhTtdKhiEEeBEPSSvM",
-      authDomain: "tech-blog-19baf.firebaseapp.com",
-      projectId: "tech-blog-19baf",
-      storageBucket: "tech-blog-19baf.appspot.com",
-      messagingSenderId: "1097756050005",
-      appId: "1:1097756050005:web:70ab9786fef7bfb3690adc",
-      measurementId: "G-0PFHFJ0H25"
-    },
-    services: {
-      auth: true,
-      firestore: true,
-      storage: true,
-      realtimeDb: true,
-    },
-  },
-
+  
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
