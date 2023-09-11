@@ -4,6 +4,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   signInWithEmailAndPassword,
+  signInWithCredential,
   createUserWithEmailAndPassword,
   signOut
 } from 'firebase/auth'
@@ -44,6 +45,21 @@ export const actions = {
 
     const auth = getAuth()
     const { user } = await signInWithPopup(auth, provider)
+
+    Cookie.set('access_token', user.accessToken)
+
+    commit('SET_USER', {
+      name: user.displayName,
+      email: user.email,
+      photoUrl: user.photoURL,
+      uid: user.uid
+    })
+  },
+
+  async SIGN_IN_WITH_GOOGLE_CREDENTIAL ({ commit }, idToken) {
+    const auth = getAuth()
+    const credential = GoogleAuthProvider.credential(idToken)
+    const { user } = await signInWithCredential(auth, credential)
 
     Cookie.set('access_token', user.accessToken)
 

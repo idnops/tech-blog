@@ -1,6 +1,7 @@
 <template>
   <v-app :dark="dark">
     <the-nav-bar />
+    <google-onetap />
     <v-divider />
     <v-main>
       <Nuxt />
@@ -15,10 +16,11 @@
 import TheNavBar from '~/components/navigation/TheNavBar.vue'
 import TheFooter from '~/components/navigation/TheFooter.vue'
 import CreateBookmarkList from '~/components/post/CreateBookmarkList.vue'
+import GoogleOnetap from '~/components/GoogleOnetap.vue'
 
 export default {
   name: 'DefaultLayout',
-  components: { TheNavBar, TheFooter, CreateBookmarkList },
+  components: { TheNavBar, TheFooter, CreateBookmarkList, GoogleOnetap },
   data () {
     return {
       dark: false

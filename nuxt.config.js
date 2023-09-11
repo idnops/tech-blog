@@ -20,6 +20,9 @@ export default {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Noto+Serif&display=swap'
       }
+    ],
+    script: [
+      { hid: 'google', src: 'https://accounts.google.com/gsi/client', defer: true }
     ]
   },
 

@@ -1,6 +1,8 @@
 <template>
   <v-app :dark="dark">
     <the-nav-bar />
+    <google-onetap />
+
     <v-container>
       <v-row>
         <v-col class="main-wrapper-col">
@@ -24,17 +26,17 @@
 </template>
 
 <script>
-
 import TheNavBar from '~/components/navigation/TheNavBar.vue'
 
 import SidebarContentSkeleton from '~/components/skeletons/SidebarContentSkeleton.vue'
 import CreateBookmarkList from '~/components/post/CreateBookmarkList.vue'
 import SidebarDefault from '~/components/SidebarDefault.vue'
 import SidebarArticle from '~/components/SidebarArticle.vue'
+import GoogleOnetap from '~/components/GoogleOnetap.vue'
 
 export default {
   name: 'DefaultLayout',
-  components: { TheNavBar, SidebarContentSkeleton, CreateBookmarkList, SidebarDefault, SidebarArticle },
+  components: { TheNavBar, SidebarContentSkeleton, CreateBookmarkList, SidebarDefault, SidebarArticle, GoogleOnetap },
   data () {
     return {
       loading: false
