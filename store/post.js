@@ -1,3 +1,7 @@
+import { getDatabase, ref, set } from 'firebase/database'
+import { v4 as uuidv4 } from 'uuid'
+import app from '~/plugins/firebase'
+
 export const state = () => ({
   article: {
     body: null
@@ -22,6 +26,20 @@ export const actions = {
 
   SAVE_TO_DRAFT: async (ctx, payload) => {
     await ctx.commit('SAVE_TO_DRAFT', payload)
+  },
+
+  PUBLISH: async ({ rootState }, payload) => {
+    const id = uuidv4()
+    const { body, tags } = payload
+
+    const db = getDatabase(app)
+
+    const user = rootState.auth.user
+    await set(ref(db, `articles/${user.uid}/${id}`), {
+      id,
+      body,
+      tags
+    })
   }
 }
 

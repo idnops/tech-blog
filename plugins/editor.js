@@ -2,6 +2,7 @@ import EditorJS from '@editorjs/editorjs'
 import Header from '@editorjs/header'
 import Delimiter from '@editorjs/delimiter'
 import List from '@editorjs/list'
+import Image from '@editorjs/image'
 
 export default (context, inject) => {
   const defaultOptions = {
@@ -28,7 +29,24 @@ export default (context, inject) => {
             defaultStyle: 'unordered'
           }
         },
-        delimiter: Delimiter
+        delimiter: Delimiter,
+        image: {
+          class: Image,
+          inlineToolbar: true,
+          config: {
+            uploader: {
+              async uploadByFile (file) {
+                const url = await context.store.dispatch('storage/UPLOAD_FILE', { file, path: 'images' })
+                return {
+                  success: true,
+                  file: {
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
 
       },
       data: options.data || {},

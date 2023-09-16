@@ -122,9 +122,13 @@ export default {
         await this.$store.dispatch('list/ADD_POST_TO_LIST', this.post.id)
       }
     },
-    async openListDialog () {
+    openListDialog () {
       this.menu = false
-      await this.$store.dispatch('list/OPEN_LIST_DIALOG', this.post.id)
+      this.$store.dispatch('list/SET_TRIGGER_ID', this.post.id)
+      this.$store.dispatch('dialog/SHOW_DIALOG', {
+        content: 'bookmark-list',
+        persistent: true
+      })
     }
   }
 

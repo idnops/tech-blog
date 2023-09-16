@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   signInWithCredential,
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
   signOut
 } from 'firebase/auth'
 
@@ -23,6 +24,18 @@ export const mutations = {
 }
 
 export const actions = {
+
+  RESTORE_USER ({ commit }) {
+    const auth = getAuth()
+    onAuthStateChanged(auth, (user) => {
+      commit('SET_USER', {
+        name: user.displayName,
+        email: user.email,
+        photoUrl: user.photoURL,
+        uid: user.uid
+      })
+    })
+  },
 
   async SIGN_IN ({ commit }, payload) {
     const { email, password } = payload
@@ -45,7 +58,6 @@ export const actions = {
 
     const auth = getAuth()
     const { user } = await signInWithPopup(auth, provider)
-
     Cookie.set('access_token', user.accessToken)
 
     commit('SET_USER', {

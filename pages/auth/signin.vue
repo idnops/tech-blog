@@ -102,7 +102,7 @@ import DividerItem from '~/components/ui/DividerItem.vue'
 export default {
   components: { TheLogo, DividerItem },
   layout: 'auth',
-  middleware: 'auth',
+  // middleware: 'auth',
   data () {
     return {
       isFormValid: false,

@@ -42,9 +42,7 @@
             <v-btn icon plain>
               <v-icon>mdi-minus-circle-outline</v-icon>
             </v-btn>
-            <v-btn icon plain>
-              <v-icon>mdi-dots-horizontal</v-icon>
-            </v-btn>
+            <post-more />
           </div>
         </div>
       </div>
@@ -68,9 +66,10 @@
 import moment from 'moment'
 import profile from '~/mixins/profile'
 import PostBookmark from '~/components/post/button/PostBookmark.vue'
+import PostMore from '~/components/post/button/PostMore.vue'
 
 export default {
-  components: { PostBookmark },
+  components: { PostBookmark, PostMore },
   mixins: [profile],
   props: {
     post: {

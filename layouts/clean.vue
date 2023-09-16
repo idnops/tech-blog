@@ -5,7 +5,7 @@
     <v-divider />
     <v-main>
       <Nuxt />
-      <create-bookmark-list />
+      <dialog-main />
     </v-main>
     <v-divider />
     <the-footer />
@@ -15,17 +15,20 @@
 <script>
 import TheNavBar from '~/components/navigation/TheNavBar.vue'
 import TheFooter from '~/components/navigation/TheFooter.vue'
-import CreateBookmarkList from '~/components/post/CreateBookmarkList.vue'
 import GoogleOnetap from '~/components/GoogleOnetap.vue'
+import DialogMain from '~/components/dialogs/DialogMain.vue'
 
 export default {
   name: 'DefaultLayout',
-  components: { TheNavBar, TheFooter, CreateBookmarkList, GoogleOnetap },
+  components: { TheNavBar, TheFooter, GoogleOnetap, DialogMain },
   data () {
     return {
       dark: false
 
     }
+  },
+  mounted () {
+    this.$store.dispatch('auth/RESTORE_USER')
   }
 }
 </script>

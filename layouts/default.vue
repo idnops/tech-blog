@@ -8,7 +8,7 @@
         <v-col class="main-wrapper-col">
           <v-main>
             <Nuxt />
-            <create-bookmark-list />
+            <dialog-main />
           </v-main>
         </v-col>
         <v-divider vertical class="app-separator" />
@@ -29,14 +29,14 @@
 import TheNavBar from '~/components/navigation/TheNavBar.vue'
 
 import SidebarContentSkeleton from '~/components/skeletons/SidebarContentSkeleton.vue'
-import CreateBookmarkList from '~/components/post/CreateBookmarkList.vue'
 import SidebarDefault from '~/components/SidebarDefault.vue'
 import SidebarArticle from '~/components/SidebarArticle.vue'
 import GoogleOnetap from '~/components/GoogleOnetap.vue'
+import DialogMain from '~/components/dialogs/DialogMain.vue'
 
 export default {
   name: 'DefaultLayout',
-  components: { TheNavBar, SidebarContentSkeleton, CreateBookmarkList, SidebarDefault, SidebarArticle, GoogleOnetap },
+  components: { TheNavBar, SidebarContentSkeleton, SidebarDefault, SidebarArticle, GoogleOnetap, DialogMain },
   data () {
     return {
       loading: false
@@ -55,6 +55,9 @@ export default {
     setTimeout(() => {
       this.loading = false
     }, 1000)
+  },
+  mounted () {
+    this.$store.dispatch('auth/RESTORE_USER')
   }
 }
 </script>

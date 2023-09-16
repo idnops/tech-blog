@@ -72,6 +72,7 @@
             color="green darken-1"
             class="text-body-2 text-capitalize mt-2"
             elevation="0"
+            @click="handlePublish"
           >
             publish now
           </v-btn>
@@ -124,12 +125,22 @@ export default {
   },
   computed: {
     ...mapGetters({
+      draft: 'post/DRAFT',
       draftStatus: 'post/DRAFT_STATUS',
       wordCount: 'post/WORD_COUNT',
       readingTime: 'post/READING_TIME'
     }),
     dark () {
       return this.$vuetify.theme.dark
+    }
+  },
+  methods: {
+    async handlePublish () {
+      await this.$store.dispatch('post/PUBLISH', {
+        body: this.draft,
+        tags: ''
+      })
+      this.$router.push('/')
     }
   }
 }

@@ -76,14 +76,8 @@ export const actions = {
     await ctx.commit('UPDATE_POST_LIST', payload)
   },
 
-  OPEN_LIST_DIALOG: async (ctx, payload) => {
-    await ctx.commit('OPEN_LIST_DIALOG')
-    await ctx.commit('SET_TRIGGER_ID', payload)
-  },
-
-  CLOSE_LIST_DIALOG: async (ctx) => {
-    await ctx.commit('CLOSE_LIST_DIALOG')
-    await ctx.commit('REMOVE_TRIGGER_ID')
+  SET_TRIGGER_ID: ({ commit }, id) => {
+    commit('SET_TRIGGER_ID', id)
   }
 }
 
