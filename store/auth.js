@@ -1,4 +1,5 @@
 import Cookie from 'js-cookie'
+
 import {
   getAuth,
   signInWithPopup,
@@ -9,6 +10,8 @@ import {
   onAuthStateChanged,
   signOut
 } from 'firebase/auth'
+import { getDatabase, ref, set } from 'firebase/database'
+import app from '~/plugins/firebase'
 
 export const state = () => ({
   user: null
@@ -58,14 +61,18 @@ export const actions = {
 
     const auth = getAuth()
     const { user } = await signInWithPopup(auth, provider)
-    Cookie.set('access_token', user.accessToken)
 
-    commit('SET_USER', {
-      name: user.displayName,
+    const newUser = {
       email: user.email,
-      photoUrl: user.photoURL,
-      uid: user.uid
-    })
+      name: user.displayName,
+      username: user.displayName,
+      photoUrl: user.photoURL
+    }
+    const db = getDatabase(app)
+    await set(ref(db, `users/${user.uid}`), newUser)
+
+    Cookie.set('access_token', user.accessToken)
+    commit('SET_USER', { ...newUser, uid: user.uid })
   },
 
   async SIGN_IN_WITH_GOOGLE_CREDENTIAL ({ commit }, idToken) {
@@ -73,30 +80,34 @@ export const actions = {
     const credential = GoogleAuthProvider.credential(idToken)
     const { user } = await signInWithCredential(auth, credential)
 
-    Cookie.set('access_token', user.accessToken)
-
-    commit('SET_USER', {
-      name: user.displayName,
+    const newUser = {
       email: user.email,
-      photoUrl: user.photoURL,
-      uid: user.uid
-    })
+      name: user.displayName,
+      username: user.displayName,
+      photoUrl: user.photoURL
+    }
+    const db = getDatabase(app)
+    await set(ref(db, `users/${user.uid}`), newUser)
+
+    Cookie.set('access_token', user.accessToken)
+    commit('SET_USER', { ...newUser, uid: user.uid })
   },
 
   async SIGN_UP ({ commit }, payload) {
-    const { email, password } = payload
+    const { email, password, name, username } = payload
 
     const auth = getAuth()
     const { user } = await createUserWithEmailAndPassword(auth, email, password)
+    const newUser = {
+      name,
+      username,
+      email
+    }
+    const db = getDatabase(app)
+    await set(ref(db, `users/${user.uid}`), newUser)
 
     Cookie.set('access_token', user.accessToken)
-
-    commit('SET_USER', {
-      name: user.displayName,
-      email: user.email,
-      photoUrl: user.photoURL,
-      uid: user.uid
-    })
+    commit('SET_USER', { ...newUser, uid: user.uid })
   },
 
   async SIGN_OUT ({ commit }) {

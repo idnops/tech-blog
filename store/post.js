@@ -1,5 +1,6 @@
-import { getDatabase, ref, set } from 'firebase/database'
+import { equalTo, getDatabase, orderByChild, query, ref, set, get } from 'firebase/database'
 import { v4 as uuidv4 } from 'uuid'
+import slug from 'slug'
 import app from '~/plugins/firebase'
 
 export const state = () => ({
@@ -29,16 +30,38 @@ export const actions = {
   },
 
   PUBLISH: async ({ rootState }, payload) => {
-    const id = uuidv4()
-    const { body, tags } = payload
-
+    const { body, tags, title, subtitle } = payload
     const db = getDatabase(app)
 
+    // check if tag exists just increment used property else create one
+    tags.forEach(async (tag) => {
+      const t = (await get(query(ref(db, 'tags'), orderByChild('name'), equalTo(tag)))).val()
+      console.log(t)
+      if (!t) {
+        await set(ref(db, `tags/${uuidv4()}`), {
+          name: tag,
+          slug: slug(tag),
+          used: 1
+        })
+      } else {
+        console.log('needs to be updated')
+        // await update(reg(db, `tags/${Object.keys(t)[0]}`), {used})
+      }
+    })
+
+    const previewImageUrl = body.blocks.find(b => b.type === 'image').data.file.url
+
     const user = rootState.auth.user
-    await set(ref(db, `articles/${user.uid}/${id}`), {
-      id,
+    const id = uuidv4()
+
+    await set(ref(db, `articles/${id}`), {
+      author: user.uid,
+      slug: slug(title),
       body,
-      tags
+      tags,
+      title,
+      subtitle,
+      photoUrl: previewImageUrl
     })
   }
 }

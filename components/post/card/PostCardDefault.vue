@@ -3,15 +3,15 @@
     <div class="post-details d-flex align-center">
       <div class="post-author">
         <v-avatar size="30" :color="dark ? 'white' : 'black'">
-          <v-img v-if="post.avatar" :src="`/${post.avatar}.jpg`" />
+          <v-img v-if="post.author.photoUrl" :src="post.author.photoUrl" />
 
           <span
             v-else
             class="text-caption text-uppercase"
             :class="[dark ? 'black--text' : 'white--text']"
-          >{{ getInitials(post.author) }}</span>
+          >{{ getInitials(post.author.name) }}</span>
         </v-avatar>
-        <span class="text-caption pl-2" :class="[!dark ? 'black--text' : 'white--text']">{{ post.author }}</span>
+        <span class="text-caption pl-2" :class="[!dark ? 'black--text' : 'white--text']">{{ post.author.name }}</span>
       </div>
       <div class="dot" />
       <div class="post-published text-caption" :class="[!dark ? 'grey--text text--darken-1' : 'grey--text text--lighten-1']">
@@ -26,14 +26,14 @@
               {{ post.title | truncate(90, '...') }}
             </div>
             <div class="post-description my-2">
-              {{ post.description | truncate(250, '...') }}
+              {{ post.subtitle | truncate(250, '...') }}
             </div>
           </div>
         </n-link>
         <div class="post-actions d-flex align-center justify-space-between text-capitalize mt-8">
           <div class="post-tag">
-            <v-chip small class="mr-2" :color="!dark ? 'grey lighten-3' : 'grey darken-2'" nuxt :to="`/tag/${post.tags[0]}`">
-              {{ post.tags[0] }}
+            <v-chip small class="mr-2" :color="!dark ? 'grey lighten-3' : 'grey darken-2'" nuxt :to="`/tag/${post.tags[0].slug}`">
+              {{ post.tags[0].name }}
             </v-chip>
             <span class="text-caption" :class="[!dark ? 'grey--text text--darken-1' : 'grey--text text--lighten-1']">5 min read</span>
           </div>
@@ -46,11 +46,11 @@
           </div>
         </div>
       </div>
-      <div class="post-image">
+      <div v-if="post.photoUrl" class="post-image">
         <n-link :to="`/post/${post.slug}`">
           <v-img
-            :src="`/posts/${post.img}.jpg`"
-            :lazy-src="`/posts/${post.img}_thumbnail.png`"
+            :src="post.photoUrl"
+            :lazy-src="post.photoUrl"
             height="140"
             width="140"
             aspect-ratio="1"

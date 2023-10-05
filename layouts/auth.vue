@@ -25,6 +25,7 @@
 <script>
 
 export default {
+  middleware: 'auth',
   computed: {
     dark () {
       return this.$vuetify.theme.dark

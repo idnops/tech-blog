@@ -32,6 +32,7 @@ export default {
 
   async fetch (context) {
     await context.store.dispatch('blog/FETCH_BLOG_POSTS')
+    await context.store.dispatch('blog/GET_BLOG_POSTS')
   },
   computed: {
     ...mapGetters({

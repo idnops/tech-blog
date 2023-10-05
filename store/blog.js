@@ -1,3 +1,4 @@
+import { getDatabase, ref, child, get, query, limitToLast, orderByChild, equalTo } from 'firebase/database'
 import posts from '~/static/json/posts.json'
 
 export const state = () => ({
@@ -47,6 +48,39 @@ export const actions = {
 
   SET_ACTIVE_LIST: async (ctx, payload) => {
     await ctx.commit('SET_ACTIVE_LIST', payload)
+  },
+
+  GET_BLOG_POSTS: async ({ commit }) => {
+    const dbRef = ref(getDatabase())
+    const db = getDatabase()
+    const recentPostsRef = query(ref(db, 'articles'), limitToLast(100), orderByChild('time'))
+    const res = (await get(recentPostsRef)).val()
+    const posts = []
+
+    Object.keys(res).forEach((key) => {
+      posts.push({ id: key, ...res[key] })
+    })
+
+    const postWithAuthors = await Promise.all(posts.map(async (post) => {
+      const author = (await get(child(dbRef, `users/${post.author}`))).val()
+      const tags = await Promise.all(post.tags.map(async (tag) => {
+        return (await get(query(ref(db, 'tags'), orderByChild('name'), equalTo(tag)))).val()
+      }))
+
+      post.author = author
+      post.tags = []
+      tags.forEach((tag) => {
+        if (tag) {
+          Object.keys(tag).forEach((key) => {
+            post.tags.push({ id: key, ...tag[key] })
+          })
+        }
+      })
+
+      return post
+    }).reverse())
+
+    commit('SET_BLOG_POSTS', postWithAuthors)
   }
 
 }

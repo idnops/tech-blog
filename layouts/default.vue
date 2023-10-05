@@ -37,6 +37,7 @@ import DialogMain from '~/components/dialogs/DialogMain.vue'
 export default {
   name: 'DefaultLayout',
   components: { TheNavBar, SidebarContentSkeleton, SidebarDefault, SidebarArticle, GoogleOnetap, DialogMain },
+  middleware: 'auth',
   data () {
     return {
       loading: false

@@ -3,15 +3,15 @@
     <div class="post-details d-flex align-center">
       <div class="post-author">
         <v-avatar size="25" :color="dark ? 'white' : 'black'">
-          <v-img v-if="post.avatar" :src="`/${post.avatar}.jpg`" />
+          <v-img v-if="post.author.photoUrl" :src="post.author.photoUrl" />
 
           <span
             v-else
             class="user-initials text-uppercase"
             :class="[dark ? 'black--text' : 'white--text']"
-          >{{ getInitials(post.author) }}</span>
+          >{{ getInitials(post.author.name) }}</span>
         </v-avatar>
-        <span class="text-caption pl-2" :class="[!dark ? 'black--text' : 'white--text']">{{ post.author }}</span>
+        <span class="text-caption pl-2" :class="[!dark ? 'black--text' : 'white--text']">{{ post.author.name }}</span>
       </div>
     </div>
     <div class="post-content">

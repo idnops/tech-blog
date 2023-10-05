@@ -24,37 +24,6 @@
       </div>
     </div>
     <v-divider class="my-6" />
-    <div class="tags">
-      <h2 class="text-body-1 font-weight-bold text-capitalize black--text mb-6">
-        add a topic
-      </h2>
-      <div>
-        <v-text-field
-          outlined
-          filled
-          dense
-          placeholder="Search topic"
-          class="text-body-2"
-          color="grey lighten-2"
-        />
-      </div>
-
-      <v-chip-group v-model="selectedTags" multiple column>
-        <v-chip
-          v-for="tag in tags"
-          :key="tag.name"
-          filter
-          filter-icon="mdi-circle-small"
-          pill
-          :color="!dark ? 'grey lighten-3' : 'grey darken-2'"
-          :value="tag"
-        >
-          {{ tag.name }}
-        </v-chip>
-      </v-chip-group>
-    </div>
-    <v-divider class="my-6" />
-
     <div class="status">
       <h2 class="text-body-1 font-weight-bold text-capitalize">
         article status
@@ -74,10 +43,7 @@
             elevation="0"
             @click="handlePublish"
           >
-            publish now
-          </v-btn>
-          <v-btn plain class="text-caption text-capitalize">
-            schedule for later
+            publish
           </v-btn>
         </div>
       </div>
@@ -88,41 +54,6 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
-  data () {
-    return {
-      selectedTags: [],
-      tags: [
-        {
-          name: 'Software development',
-          url: 'software-development'
-        },
-        {
-          name: 'Web 3',
-          url: 'web-3'
-        },
-        {
-          name: 'Data science',
-          url: 'data-science'
-        },
-        {
-          name: 'React',
-          url: 'react'
-        },
-        {
-          name: 'UX design',
-          url: 'ux-design'
-        },
-        {
-          name: 'Flutter',
-          url: 'flutter'
-        },
-        {
-          name: 'Phyton',
-          url: 'phyton'
-        }
-      ]
-    }
-  },
   computed: {
     ...mapGetters({
       draft: 'post/DRAFT',
@@ -135,12 +66,13 @@ export default {
     }
   },
   methods: {
-    async handlePublish () {
-      await this.$store.dispatch('post/PUBLISH', {
-        body: this.draft,
-        tags: ''
+    handlePublish () {
+      this.$store.dispatch('dialog/SHOW_DIALOG', {
+        content: 'article-publish',
+        elevated: true,
+        persistent: true,
+        maxWidth: 1200
       })
-      this.$router.push('/')
     }
   }
 }
